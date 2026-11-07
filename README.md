@@ -1,96 +1,103 @@
-# yuanzephyr 个人站 · 第 4 版「粗野浇筑」
+# SHEET 920 — 个人站（连续打印纸版）
 
-手写 HTML，一份样式表，零脚本。图纸照 [brutalist-web.design](https://brutalist-web.design/)
-的七条，样式照 [brutalistwebsites.com](https://brutalistwebsites.com/) 的排法，
-再掺一点 2000 年中文个人站的零件和 2010 年代反 UX 的站姿。
+手写的个人站。四张纸、一份样式表、零脚本、零字体包、零外部请求。
+线上地址：<https://yuanzephyr920-oss.github.io/>
 
-线上：<https://yuanzephyr920-oss.github.io/>
+## 这一版是什么
+
+v5「连续打印纸」。前面的 v1–v4 已经从仓库里删掉，只留在 git 历史里。
+
+把网页当成一叠打印机吐出来的连续纸：
+
+- 纸是白的，两边各一排齿轮孔（`radial-gradient` 打的，全 CSS）；
+- 页眉是机器的黑头条（`JOB 920-A · SHEET 1/4`）；
+- 正文全是等宽字，因为这是打印机打出来的东西；
+- 顶上一道黑菜单，四格，像纸上的四栏；
+- 右上角一枚方形红章「已阅 · 920 · IN USE」，`mix-blend-mode: multiply`，压进纸里；
+- 标题后面一个会闪的方块光标，全站唯一的动效；
+- 页脚一条黑底 `END OF SHEET N — 共 4 张`。
 
 ## 文件
 
-| 文件 | 是什么 |
-|---|---|
-| `index.html` | 首页 / 车间：在产三件、车间规矩、原始肌理、材料单、怎么找我 |
-| `projects.html` | 三个包 / 工单：装法、代价、钩子、出处与许可 |
-| `about.html` | 自述 / 材料：这台机器、怎么浇的（七条逐条对）、参考墙、皮下自检、更新记录 |
-| `404.html` | 「这条走廊没有门」，GitHub Pages 自动接管坏链接 |
-| `style.css` | 全部样式，约 14 KB，一个 `@media` 三层，外加打印样式 |
-| `favicon.svg` | 纸底墨框 + 黄三角 + Impact 的 Z |
-| `assets/idle-crt-plate.jpg` | 显像管屏保的实拍截图（工单里那张） |
+| 文件 | 作用 |
+| --- | --- |
+| `index.html` | 车间（首页）· SHEET 1/4 |
+| `projects.html` | 三个包（三张工单）· SHEET 2/4 |
+| `about.html` | 自述（机器、七条、参考墙、皮下、更新记录）· SHEET 3/4 |
+| `404.html` | 错误页（GitHub Pages 会自动拿它当 404）· SHEET 4/4 |
+| `style.css` | 全套样式：纸、孔、黑头条、表格、暗色、打印 |
+| `favicon.svg` | 黑底 + 两排白孔 + 三道红杠 |
+| `assets/idle-crt-plate.jpg` | dsh-idle-crt 的显像管画面（1024×576） |
+| `assets/ref-brutalistwebsites.jpg` | 参考站实拍（1200×750） |
+| `assets/ref-brutalist-web-design.jpg` | 参考站实拍（1200×750） |
 
 ## 本地看
-
-直接双击 `index.html` 就行——没有构建、没有依赖、断网也照开。
-
-要按线上路径试，随便起个静态服务：
 
 ```powershell
 cd G:\DSH\personal-site
 python -m http.server 8080
-# http://127.0.0.1:8080/
+# 然后开 http://127.0.0.1:8080/
 ```
 
-截图（Edge headless + 手写 CDP，宽 320–2560 全页，写进 `_check/v4/`）：
+`file://` 直接打开也能看，只是 404 页不会被自动调用。
+
+## 截图自检
+
+截图脚本在源工程 `G:\DSH\psite-v5\_check\shoot5.mjs`（Edge headless + 手写 CDP，19 张：四个页面 1440，首页 820/390/320/2560，projects/about/404 的 390，about 320，减少动效一张，暗色六张）。产物在 `_check\v5\`，探针数据在 `report.json`。
 
 ```powershell
-cd G:\DSH\personal-site\_check
-node shoot4.mjs
+cd G:\DSH\psite-v5\_check
+node shoot5.mjs
+node probe4.mjs   # 单个盒子量一次，例如 pre 的实际宽度
 ```
 
-## 发布
+注意：Edge 全页截图（`captureBeyondViewport`）**不遵守内层元素的 `overflow` 裁剪**，`pre` 里的长代码在图上会画到纸外；实际几何以探针的 `getBoundingClientRect` 为准。
 
-仓库 `yuanzephyr920-oss/yuanzephyr920-oss.github.io`，Pages 源是 `main` 根目录，强制 HTTPS。
-本机推之前保留全局 socks 代理（清空会挂住），token 从 `git credential fill` 取：
+## 改一个字的流程
 
 ```powershell
 cd G:\DSH\personal-site
 git add -A
-git commit -m "重做版面 v4：粗野浇筑"
-$t = (("protocol=https`nhost=github.com`n`n" | git credential fill) | Select-String 'password=') -replace 'password=',''
-git push "https://x-access-token:$t@github.com/yuanzephyr920-oss/yuanzephyr920-oss.github.io.git" main:main
+git commit -m "改了什么"
 ```
 
-推完约 40 秒构建。验：
+发布（token 从 git 凭据管理器取）：
 
 ```powershell
-curl.exe -x socks5h://127.0.0.1:1080 -s https://yuanzephyr920-oss.github.io/ | Select-Object -First 20
+$t = (echo "protocol=https`nhost=github.com`n" | git credential fill | Select-String '^password=') -replace 'password=',''
+git push https://x-access-token:$t@github.com/yuanzephyr920-oss/yuanzephyr920-oss.github.io.git main:main
 ```
 
-## 这一版守的规矩
+本机 git 的全局 socks 代理（`socks5://127.0.0.1:1080`）必须留着，否则 push 会挂住。线上验证：
 
-- **只有链接能点**：零 JavaScript，没有卡整块跳转、没有假按钮。
-- **链接有下划线，访问过变紫**：浏览器默认长什么样就什么样，只改颜色变量。
-- **后退键好使**：没有 hash 路由、没有重定向、没有拦 `history`。
-- **靠滚动看内容**：不折叠、不分页、不弹「阅读更多」。
-- **该装饰才装饰**：纸纹、粗线、骑缝章、施工带、走马灯——每样都有出处。
-  「最佳浏览 1024×768 · IE 6.0」只是族谱，不是要求。
-- **快**：无 Web 字体、无图标库、无统计脚本，外部请求 0 个。
+```powershell
+curl.exe -x socks5h://127.0.0.1:1080 -sI https://yuanzephyr920-oss.github.io/
+curl.exe -x socks5h://127.0.0.1:1080 -s  https://yuanzephyr920-oss.github.io/this-path-does-not-exist | Select-String "错页"
+```
 
-**暗色跟着系统走**：`prefers-color-scheme: dark` 下纸墨对调（`#e9e5da` ⇄ `#14120c`）、
-纸纹从「乘一层脏」改成「筛一层亮」、橙色提亮到 `#ff5a2b`、黄底永远黑字、图片不反相。
-两套颜色是同一份样式表里的一个媒体查询，没有脚本也没有开关——做法抄的是
-[brutalist-web.design](https://brutalist-web.design/) 自己那层 Tachyons 颜色映射。
-**有打印样式**：走带、侧栏、施工带不进纸，外链后面补真实地址。
+## 七条
 
-## 参考站的截图
+这套东西按 <https://brutalist-web.design/> 的七条来，自述页第 03 节逐条写了这一版怎么兑现：
 
-`about.html` 的「现场」一节放了两张 2026-11-07 的首页截图（`assets/ref-*.jpg`，1200 宽 JPEG）：
-`brutalistwebsites.com`（灰底等宽、三列 400×250）与 `brutalist-web.design`（暗底、21 px 正文、每节一个 Permalink）。
-它们用 `figure.shot img{filter:none}` 逃过全站灰度，是全站唯一不跟系统配色走的东西。
+内容先于版面 · 只有链接和按钮能被点 · 链接带下划线 · 后退键必须好用 · 长内容靠滚 · 该装饰才装饰 · 快是设计的一部分。
+
+## 契约
+
+- **零 JS**：全站没有一个 `<script>`，也没有事件处理器。
+- **零外部请求**：没有 CDN、没有外链字体、没有统计。断网刷新照开。
+- **系统字体**：Courier New / Consolas / 宋体 / 黑体，一个都不下载。
+- **暗色**：`prefers-color-scheme: dark` 下纸变黑纸，绿道淡下去；不反相图片。
+- **窄屏**：320–2560 实测无横向滚动；表格整行变方块（`table.stack`）。
 
 ## 版本
 
-- `v1` 第一版，三页（2026-11-07）
-- `v2` 报纸底、巨编号、危险红（2026-11-07，已废）
-- `v3` 拆掉报纸版式，改手搭：默认字体、方框、表格、虚线（2026-11-07，已废）
-- `v4` 粗野浇筑（2026-11-07）
-- `v4.1` 加暗色、每节 § 永久链接、参考墙补两张现场截图（2026-11-07）
+| 版本 | 是什么 | 状态 |
+| --- | --- | --- |
+| v5 | 连续打印纸（当前） | 线上 |
+| v4.1 | 水泥浇筑 + 暗色 + § 链接 | 已删，git 历史 |
+| v4 | 水泥浇筑 / 报纸 | 已删，git 历史 |
+| v3 | 手搭：默认字体、方框、虚线 | 已删，git 历史 |
+| v2 | 报纸底、巨编号、危险红 | 已删，git 历史 |
+| v1 | 第一版，三页 | 已删，git 历史 |
 
-旧版都在 git 历史里；线上只挂最新一版。
-
-## 版权
-
-文字 CC BY 4.0，代码 MIT。显像管画面派生自
-[justawebsite/dsh-splash-crt](https://github.com/justawebsite/dsh-splash-crt)（MIT）。
-七条规矩原文属于 [David Bryant Copeland](https://brutalist-web.design/)，CC BY-NC-SA 4.0；
-这里的做法是自己的。
+文字 CC BY 4.0，代码 MIT。七条规矩原文属于 David Bryant Copeland（CC BY-NC-SA 4.0）。

@@ -1,76 +1,85 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>404 · 这条走廊没有门 · yuanzephyr</title>
-<meta name="description" content="页面不存在。退回车间。">
+<title>404 — 这张纸是空的</title>
+<meta name="description" content="地址打错了，或者我把哪张纸挪了。四个出口在这儿。">
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="light dark">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <a class="skip" href="#main">跳到正文</a>
 
-<div class="page">
+<div class="sheet">
 
-<div class="ticker" aria-hidden="true">
-  <div class="ticker__track">
-    <span>404 ▓ 这条走廊没有门 ▓ 你手里的地址大概写错了 ▓ 也可能是我的链接写错了 ▓ 不管是哪种，退回去就好 ▓</span>
-    <span>404 ▓ 这条走廊没有门 ▓ 你手里的地址大概写错了 ▓ 也可能是我的链接写错了 ▓ 不管是哪种，退回去就好 ▓</span>
-  </div>
-</div>
+  <p class="job">
+    <span><b>JOB 920‑E</b> · SHEET 4/4 · 错误</span>
+    <span>打印机卡纸 · 这一行是空的</span>
+  </p>
 
-<header class="mast">
-  <p class="kicker">错误 404 · 文件未找到 · 状态：空</p>
-  <div class="mast__row">
-    <h1 class="big404">404</h1>
-    <div class="mast__plate">
-      <b>没有</b>
-      <span>NOT FOUND<br>NO. 000</span>
-    </div>
-  </div>
-  <p class="mast__sub">这条走廊没有门。你要找的页面不在这个地址上——可能是我改版时把它挪了，也可能是地址里打错了一个字。</p>
-</header>
+  <p class="stamp" aria-hidden="true"><b>已阅</b><span>920 · 自用</span><span>IN USE</span></p>
+  <header class="mast">
+    <p class="mast__tag">没有这张纸</p>
+    <h1>错页<span class="cursor" aria-hidden="true"></span></h1>
+    <p class="mast__sub">
+      <span>你要的页面不在这叠纸上。可能是地址打错了一个字，也可能是我改版时把它抽走了——抽走的纸不会回来，只在 git 里留个印子。</span>
+      <span class="plate"><b>404</b><span>NO SHEET · NO. 000</span></span>
+    </p>
+  </header>
 
-<div class="layout">
-  <aside class="rail">
-    <h2>站点地图</h2>
-    <nav aria-label="主导航">
-      <ul>
-        <li><a href="index.html">01 首页 / 车间</a></li>
-        <li><a href="projects.html">02 三个包 / 工单</a></li>
-        <li><a href="about.html">03 自述 / 材料</a></li>
-      </ul>
-    </nav>
-    <h2>提示</h2>
-    <p class="tiny">后退键就在浏览器左上角，它一直好使——这一站没有拦过它。</p>
-  </aside>
+  <nav class="menu" aria-label="站点">
+    <a href="index.html">1 车间</a>
+    <a href="projects.html">2 三件</a>
+    <a href="about.html">3 自述</a>
+    <a href="404.html" aria-current="page">4 错误</a>
+  </nav>
 
   <main id="main">
-    <h2 class="sec"><span class="sec__n">01</span>往这边走</h2>
+
+    <div class="err">
+      <p class="err__code" aria-hidden="true">404</p>
+      <p class="err__say">这张纸是空的。上面没有字，也不该有字。</p>
+    </div>
+
+    <h2 id="out">往这边走<a class="plink" href="#out" aria-label="本节永久链接">#</a></h2>
+
     <ul>
-      <li><a href="index.html">回车间</a> —— 首页，三个在产的东西</li>
-      <li><a href="projects.html">看工单</a> —— 三个包的装法与代价</li>
+      <li><a href="index.html">回车间</a> —— 这张站是干什么的，本机现在什么状态</li>
+      <li><a href="projects.html">看三个包</a> —— 三件在产的东西，装法与代价</li>
       <li><a href="about.html">看自述</a> —— 这台机器、参考墙、更新记录</li>
       <li><a href="https://github.com/yuanzephyr920-oss">去 GitHub</a> —— 源码都在那边</li>
     </ul>
 
-    <div class="tape" aria-hidden="true"><span>此路不通 · 但别处通</span></div>
+    <p>
+      如果你确定这个地址上原来有东西，去
+      <a href="https://github.com/yuanzephyr920-oss/yuanzephyr920-oss.github.io/issues">开一条 Issue</a> 告诉我。
+      404 也是网页的一部分，值得修。
+    </p>
 
-    <p class="tiny">要是你确定这个地址该有东西，去 <a href="https://github.com/yuanzephyr920-oss/yuanzephyr920-oss.github.io/issues">开一条 Issue</a> 告诉我。404 也是网页的一部分，值得被修。</p>
+    <p class="tiny">
+      提示：浏览器的后退键在左上角，它一直好用——这一站没有拦过它，也不打算拦。
+    </p>
+
   </main>
+
+  <footer class="eof">
+    <p class="eof__bar">END OF SHEET 4 — 纸到这里就断了</p>
+    <div class="eof__body">
+      <nav class="eof__nav" aria-label="站点">
+        <a href="index.html">1 车间</a>
+        <a href="projects.html">2 三件</a>
+        <a href="about.html">3 自述</a>
+        <a href="#main">回到顶上</a>
+      </nav>
+      <p>© 2026 yuanzephyr。文字 CC BY 4.0，代码 MIT。</p>
+      <p>机打时间 2026‑11‑07 · 打印机：浏览器 · 没有埋点，没有 Cookie。</p>
+    </div>
+  </footer>
+
 </div>
 
-<footer class="foot">
-  <pre class="sig">  ┌────────────────────────────┐
-  │ yuanzephyr · 插件工        │
-  │ 920 · 第 4 版 · 手写       │
-  └────────────────────────────┘</pre>
-  <p class="footnav"><a href="index.html">首页</a> · <a href="projects.html">三个包</a> · <a href="about.html">自述</a> · <a href="#main">回到顶部 ↑</a></p>
-  <hr class="foot__rule">
-  <p>© 2026 yuanzephyr。文字 CC BY 4.0，代码 MIT。</p>
-</footer>
-
-</div>
 </body>
 </html>

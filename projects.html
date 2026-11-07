@@ -1,182 +1,171 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>三个包 · 工单 · yuanzephyr</title>
-<meta name="description" content="三张工单：待机显像管 dsh-idle-crt、祷文转换 dsh-om-messiah、插件目录 awesome-dsh-plugin。装法、触发条件、代价，全写在上面。">
+<title>三个包 — SHEET 2/4</title>
+<meta name="description" content="dsh-idle-crt、dsh-om-messiah、awesome-dsh-plugin：三个我自己每天在用的东西，装法、代价、许可都在这里。">
+<meta name="color-scheme" content="light dark">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <a class="skip" href="#main">跳到正文</a>
 
-<div class="page">
+<div class="sheet">
 
-<div class="ticker" aria-hidden="true">
-  <div class="ticker__track">
-    <span>工单区 ▓ 三个包 · 一行一个装法 ▓ 版本号是真的 ▓ 截图是本机截的，没修 ▓ 没有「即将推出」 ▓ 没做出来的东西不写在这儿</span>
-    <span>工单区 ▓ 三个包 · 一行一个装法 ▓ 版本号是真的 ▓ 截图是本机截的，没修 ▓ 没有「即将推出」 ▓ 没做出来的东西不写在这儿</span>
-  </div>
-</div>
+  <p class="job">
+    <span><b>JOB 920‑B</b> · SHEET 2/4 · 三个包</span>
+    <span>2026‑11‑07 · MIT · 装法一行 · 代价写在明面上</span>
+  </p>
 
-<header class="mast">
-  <p class="kicker">工单 · 三张 · 全部在产 · 脚本 0 B</p>
+  <p class="stamp" aria-hidden="true"><b>已阅</b><span>920 · 自用</span><span>IN USE</span></p>
+  <header class="mast">
+    <p class="mast__tag">在产 · 三件</p>
+    <h1>三个包<span class="cursor" aria-hidden="true"></span></h1>
+    <p class="mast__sub">
+      <span>都是自己每天在用的东西，所以每一条都垫着踩过的坑。装法一行，源码一个链接，代价写在明面上——没有一项是「以后再说」。</span>
+      <span class="plate"><b>3</b><span>PACKAGES · 0 DEPS</span></span>
+    </p>
+  </header>
 
-  <div class="mast__row">
-    <h1 class="mast__title">三个包</h1>
-    <div class="mast__plate">
-      <b>在产</b>
-      <span>3 ITEMS<br>NO. 920</span>
-    </div>
-  </div>
-
-  <p class="mast__sub">都是自己每天在用的东西，所以每一条都垫着踩过的坑。装法一行，源码一个链接，代价写在明面上——没有一项是「以后再说」。</p>
-
-  <ul class="specrow">
-    <li><span>包</span><b>3</b></li>
-    <li><span>运行时依赖</span><b>0</b></li>
-    <li><span>许可</span><b>MIT</b></li>
-    <li><span>最新改动</span><b>11-07</b></li>
-  </ul>
-</header>
-
-<div class="layout">
-
-<aside class="rail">
-  <h2>站点地图</h2>
-  <nav aria-label="主导航">
-    <ul>
-      <li><a href="index.html">01 首页 / 车间</a></li>
-      <li><a href="projects.html" aria-current="page">02 三个包 / 工单</a></li>
-      <li><a href="about.html">03 自述 / 材料</a></li>
-    </ul>
+  <nav class="menu" aria-label="站点">
+    <a href="index.html">1 车间</a>
+    <a href="projects.html" aria-current="page">2 三件</a>
+    <a href="about.html">3 自述</a>
+    <a href="404.html">4 错误</a>
   </nav>
 
-  <h2>本页</h2>
-  <ul>
-    <li><a href="#idle-crt">01 显像管</a></li>
-    <li><a href="#om-messiah">02 祷文</a></li>
-    <li><a href="#awesome">03 目录</a></li>
-    <li><a href="#license">04 出处与许可</a></li>
-  </ul>
+  <main id="main">
 
-  <h2>来客</h2>
-  <p class="hits" aria-label="计数器"><b>0</b><b>0</b><b>0</b><b>9</b><b>2</b><b>0</b></p>
-  <p class="tiny">不联网，也不数人头。这串是站点编号。</p>
+    <p class="lead">
+      三张工单。第一张是屏保，第二张是个玩笑但真能用，第三张是一份不收钱的目录。
+      共同点：<mark>都不改宿主主程序</mark>，关掉就还原。
+    </p>
 
-  <h2>标签</h2>
-  <ul class="badges">
-    <li class="badge">MIT</li>
-    <li class="badge">npm</li>
-    <li class="badge">无构建</li>
-    <li class="badge"><a href="https://github.com/yuanzephyr920-oss">GitHub</a></li>
-  </ul>
-</aside>
+    <section class="ticket" id="crt">
+      <h3>工单 01 · dsh-idle-crt</h3>
+      <div class="ticket__body">
+        <p class="ticket__head">
+          <span>浏览器端 · v0.3.1 · MIT · 零依赖</span>
+          <span>入口：<code>dsh-idle-crt</code></span>
+        </p>
+        <p>
+          会话停了、人走出去开会，屏幕上就盖上一块 CRT：辉光管、扫描线、一轮灰色扫描。
+          你回来点鼠标、按个键、滚一下滚轮，它退开，页面还是原来那个页面。
+        </p>
+        <p>
+          系统屏保管不了这一页。Windows 那一套是整机层面的，可 DSH 在跑任务时你未必想让整台机器黑掉；
+          反过来，人在看内容时，系统屏保也不该把屏幕按掉。所以它只做一件事：键盘和指针十分钟没动静，
+          才亮屏。它不抢焦点、不劫持输入——滚轮只锁滚动，鼠标移动<em>不收</em>。
+        </p>
 
-<main id="main">
+        <figure>
+          <img src="assets/idle-crt-plate.jpg" alt="dsh-idle-crt 的待机画面：黑底上一块发灰的显像管，右下角一句 PRESS ANY KEY TO CONTINUE" width="1024" height="576">
+          <figcaption>显像管画面 · 片元着色器合成 · RTX 4060 上帧时间 p50 与 p99 都是 16.7 ms</figcaption>
+        </figure>
 
-  <p class="lead">三张工单。第一张是屏保，第二张是个玩笑但真的能用，第三张是一份不收钱的目录。<mark>共同点：都不改宿主主程序</mark>，关掉就还原。</p>
+        <pre><code>dsh plugin --profile desktop add dsh-idle-crt</code></pre>
 
-  <h2 class="sec" id="idle-crt"><span class="sec__n">01</span>dsh-idle-crt<a class="sec__link" href="#idle-crt" aria-label="本节永久链接">§</a></h2>
+        <dl class="specs">
+          <div><dt>触发</dt><span class="d" aria-hidden="true"></span><dd><code>busy=false</code> 且页面空闲 10 分钟</dd></div>
+          <div><dt>收起</dt><span class="d" aria-hidden="true"></span><dd>窗口内点击、按键、触摸、右键；滚轮只锁滚动</dd></div>
+          <div><dt>合成</dt><span class="d" aria-hidden="true"></span><dd>全 GPU，片元着色器里跑，不占 JS 主线程</dd></div>
+          <div><dt>出处</dt><span class="d" aria-hidden="true"></span><dd>派生自 <a href="https://github.com/justawebsite/dsh-splash-crt">justawebsite/dsh-splash-crt</a>（MIT）</dd></div>
+        </dl>
+      </div>
+    </section>
 
-  <p class="meta">待机显像管 · v0.3.1 · MIT · Host + 客户端</p>
+    <section class="ticket" id="om">
+      <h3>工单 02 · dsh-om-messiah</h3>
+      <div class="ticket__body">
+        <p class="ticket__head">
+          <span>Host 插件 + 客户端按钮 · v1.4.3 · MIT · 零依赖</span>
+          <span>入口：<code>dsh-om-messiah</code></span>
+        </p>
+        <p>
+          你发给 DSH 的每一条提示词，在交给模型之前先被改写成一篇万机之神的祷文；DSH 的回复照样返回，
+          发回去还是发文，由你在发送前自己决定。
+        </p>
+        <p>
+          拦的是 Host 的 <code>agent/pre-step</code>：拿到这一批用户消息，只替换本批次里的文本块，
+          不动历史消息，也不碰你自己加的运行时上下文。
+        </p>
 
-  <p>会话停了、人也不动键盘，页面才盖上一块 CRT：辉光字、扫描线、一轮反色扫描。你回来点一下窗口、按个键、碰一下触摸屏，它淡出，页面还是原来那个页面。</p>
+<pre><code>用户消息 → agent/pre-step → 改写 → 模型
+                ·
+                · 只动本批的文本块
+                · 图片、附件、指令原样通过
+                · 档位 framed / rules / off
+                · 风格常量抄在 lib/template.js</code></pre>
 
-  <p>系统屏保管不了「这一页」。Windows 的屏保是整机层面的事，可 DSH 在跑长任务时你未必想让它盖掉进度；反过来，去泡杯咖啡回来，系统屏保又不会告诉你这十分钟 Agent 没在干活、可以放心走开。这个插件只做一个很窄的判断——<b>宿主给出 <code>busy=false</code>，而且这一页十分钟没人碰过</b>——两个条件都满足才出现，有活干时它一次都不亮。</p>
+        <p>改写分三档：<code>framed</code> 把原话整个镶进祷文；<code>rules</code> 只加规则性的开场与收束；<code>off</code> 原样放行。客户端与宿主共用同一份常量，输出逐字一致。</p>
+        <p>不装插件也能用：<code>om-messiah --serve</code> 起一个本地反向代理，把最后一条 user 消息包装成祷文。代价是绕开 DSH 的会话与审计，所以它不是默认通道。</p>
 
-  <p><mark>不抢焦点，也不劫持输入</mark>：只在窗口内点击、按键、触摸、右键时才收板；滚轮只锁滚动；鼠标移动默认不收起——移动不等于「人在看」。</p>
-
-  <figure>
-    <img src="assets/idle-crt-plate.jpg" width="1200" height="750" alt="待机显像管画面：黑底上一行终端会话，中间是发光的 DEEPSEEK HARNESS 字样，底部写着 PRESS ANY KEY TO CONTINUE。">
-    <figcaption>待机画面。一轮完整的反色扫描，整帧在片元着色器里合成；这台机器上帧时间 p50 与 p99 都是 16.7 ms。</figcaption>
-  </figure>
-
-  <pre><code>dsh plugin --profile desktop add dsh-idle-crt</code></pre>
-
-  <dl class="specs">
-    <dt>触发</dt><dd><code>busy=false</code> 且页面空闲 10 分钟</dd>
-    <dt>收板</dt><dd>窗口内点击 / 按键 / 触摸 / 右键；滚轮只锁滚动</dd>
-    <dt>合成</dt><dd>全 GPU，逐帧在片元着色器里</dd>
-    <dt>源码</dt><dd><a href="https://github.com/yuanzephyr920-oss/dsh-idle-crt">GitHub</a> · <a href="https://www.npmjs.com/package/dsh-idle-crt">npm</a> · <a href="https://github.com/yuanzephyr920-oss/dsh-idle-crt/issues">Issues</a></dd>
-  </dl>
-
-  <div class="tape" aria-hidden="true"><span>工单 01 · 已交付</span></div>
-
-  <h2 class="sec" id="om-messiah"><span class="sec__n">02</span>dsh-om-messiah<a class="sec__link" href="#om-messiah" aria-label="本节永久链接">§</a></h2>
-
-  <p class="meta">祷文转换 · v1.4.3 · Host 插件 + 客户端按钮</p>
-
-  <p>你发给 DSH 的每一句提示词，在交给模型之前先被改写成一篇万机之神祷文；DSH 的回复原样返回。发祷文还是发原文，由你在发送前自己决定。</p>
-
-  <p>拦截点是 Host waterfall 的 <code>agent/pre-step</code>：拿到这一批用户消息，只替换本批次里的文本块，不碰历史消息，也不碰引擎自己追加的运行时上下文。</p>
-
-<pre>用户消息
-  └─ agent/pre-step ──▶ 改写 ──▶ 模型
-        · 只换本批次的文本块
-        · 不碰历史，不动运行时上下文
-        · 档位 framed / rules / off
-        · 风格基准逐字抄在 lib/template.js</pre>
-
-  <p>改写层分三档：<code>framed</code> 把原话整个框进祷文；<code>rules</code> 只加规则性的开场与收束；<code>off</code> 原样放行。客户端与宿主共用同一份常量，输出逐字一致，有测试盯着。</p>
-
-  <p>不装插件也能用：<code>om-messiah --serve</code> 起一个本地反向代理，把最后一条 user 消息包装后转发。代价是绕开 DSH 的会话与审计，所以它不是默认通道。</p>
-
-  <pre><code>dsh plugin --profile desktop add dsh-om-messiah
+        <pre><code>dsh plugin --profile desktop add dsh-om-messiah
 om-messiah --serve</code></pre>
 
-  <dl class="specs">
-    <dt>钩子</dt><dd><code>agent/pre-step</code>（Host waterfall）</dd>
-    <dt>档位</dt><dd>framed · rules · off</dd>
-    <dt>代价</dt><dd><code>--serve</code> 绕过会话与审计，只在你清楚的时候开</dd>
-    <dt>源码</dt><dd><a href="https://github.com/yuanzephyr920-oss/dsh-om-messiah">GitHub</a> · <a href="https://www.npmjs.com/package/dsh-om-messiah">npm</a></dd>
-  </dl>
+        <dl class="specs">
+          <div><dt>钩子</dt><span class="d" aria-hidden="true"></span><dd><code>agent/pre-step</code>（Host waterfall）</dd></div>
+          <div><dt>档位</dt><span class="d" aria-hidden="true"></span><dd><code>framed</code> · <code>rules</code> · <code>off</code></dd></div>
+          <div><dt>风险</dt><span class="d" aria-hidden="true"></span><dd><code>--serve</code> 绕开会话与审计，只在你清楚的时候开</dd></div>
+        </dl>
+      </div>
+    </section>
 
-  <div class="tape" aria-hidden="true"><span>工单 02 · 已交付</span></div>
+    <section class="ticket" id="awesome">
+      <h3>工单 03 · awesome-dsh-plugin</h3>
+      <div class="ticket__body">
+        <p class="ticket__head">
+          <span>纯 Markdown 目录 · 没有生成步骤</span>
+          <span>入口：<a href="https://github.com/yuanzephyr920-oss/awesome-dsh-plugin">GitHub</a></span>
+        </p>
+        <p>
+          DSH 插件的收录仓库。上面两件东西自己也在这份目录里；别人写的插件也走同一套收录标准：
+          <b>能装、能跑、说明写得清</b>。没有评分、没有排行、没有「精选」。
+        </p>
 
-  <h2 class="sec" id="awesome"><span class="sec__n">03</span>awesome-dsh-plugin<a class="sec__link" href="#awesome" aria-label="本节永久链接">§</a></h2>
+        <pre><code>gh repo view yuanzephyr920-oss/awesome-dsh-plugin</code></pre>
 
-  <p class="meta">插件目录 · 纯 Markdown · 由我维护</p>
+        <dl class="specs">
+          <div><dt>形态</dt><span class="d" aria-hidden="true"></span><dd>一份 README，纯 Markdown，没有生成步骤</dd></div>
+          <div><dt>收录</dt><span class="d" aria-hidden="true"></span><dd>能装、能跑、说明写清</dd></div>
+          <div><dt>投稿</dt><span class="d" aria-hidden="true"></span><dd>直接开 PR，或开一条 Issue 贴地址</dd></div>
+        </dl>
+      </div>
+    </section>
 
-  <p>DSH 插件的收录仓库。上面两件东西的条目在这里维护，别人的插件也走同一套收录标准：能装、能跑、说明写清楚。没有评分，没有排行，没有「精选」——一条目录只回答三个问题：这包干什么、装哪一行、源码在哪。</p>
+    <h2 id="license"><span class="no">04</span>出处与许可<a class="plink" href="#license" aria-label="本节永久链接">#</a></h2>
 
-  <pre><code>gh repo view yuanzephyr920-oss/awesome-dsh-plugin</code></pre>
+    <p>
+      <b>dsh-idle-crt</b> 是 <a href="https://github.com/justawebsite/dsh-splash-crt">dsh-splash-crt</a> 的派生改动，MIT 协议。
+      画面部分（CRT 着墨器、反色扫描、辉光管字标）版权归上游作者。我把触发条件从「启动时一闪而过」改成「页面空闲才亮」，
+      并补了全屏开关、输入语义，以及一处 CSS 变量名冲突。
+    </p>
+    <p>
+      <b>dsh-om-messiah</b> 与本页的源码都在 <a href="https://github.com/yuanzephyr920-oss">GitHub</a> 上，同样以 MIT 发布。
+      站上的文字部分按 CC BY 4.0 授权——要抄，注明出处即可。
+    </p>
 
-  <dl class="specs">
-    <dt>形态</dt><dd>纯 Markdown 清单，没有生成步骤</dd>
-    <dt>门槛</dt><dd>能装、能跑、说明清楚</dd>
-    <dt>收录</dt><dd>开放 · <a href="https://github.com/yuanzephyr920-oss/awesome-dsh-plugin">提交条目或 Pull Request</a></dd>
-  </dl>
+    <p class="tiny">「版权归原作者」不是免责声明，是事实：这两个包能存在，是因为先有人把这段东西写出来并放开手。能改的地方就改，改不动的地方就说清楚。</p>
 
-  <div class="tape" aria-hidden="true"><span>工单 03 · 长期维护</span></div>
+  </main>
 
-  <h2 class="sec" id="license"><span class="sec__n">04</span>出处与许可<a class="sec__link" href="#license" aria-label="本节永久链接">§</a></h2>
+  <footer class="eof">
+    <p class="eof__bar">END OF SHEET 2 — 共 4 张</p>
+    <div class="eof__body">
+      <nav class="eof__nav" aria-label="站点">
+        <a href="index.html">1 车间</a>
+        <a href="about.html">3 自述</a>
+        <a href="404.html">4 错误</a>
+        <a href="#main">回到顶上</a>
+      </nav>
+      <p>© 2026 yuanzephyr。文字 CC BY 4.0，代码 MIT。</p>
+      <p>机打时间 2026‑11‑07 · 打印机：浏览器 · 没有埋点，没有 Cookie。</p>
+    </div>
+  </footer>
 
-  <p><code>dsh-idle-crt</code> 是 <code>dsh-splash-crt</code> 的衍生改造，MIT 协议：画面部分（CRT 着色器、反色扫描、辉光字排版）版权归上游作者。上游把它做成「启动时一闪而过的 CRT 闪屏」，我把它改成待机屏保时补上的是：空闲检测、输入语义、与其它插件的共存层、设置页，以及逐帧 GPU 合成。</p>
-
-  <p><code>dsh-om-messiah</code> 与本站源码都在 <a href="https://github.com/yuanzephyr920-oss">GitHub</a> 上，同样以 MIT 发布。这个站的文字部分按 CC BY 4.0 授权——要抄，注明出处即可。</p>
-
-  <p>「版权归原作者」是事实，也是能改的前提；改不动的地方，我就没碰。</p>
-
-</main>
 </div>
 
-<footer class="foot">
-  <pre class="sig">  ┌────────────────────────────┐
-  │ yuanzephyr · 插件工        │
-  │ html / css / glsl / pwsh   │
-  │ 920 · 第 4 版 · 手写       │
-  └────────────────────────────┘</pre>
-
-  <p class="footnav"><a href="index.html">首页</a> · <a href="projects.html">三个包</a> · <a href="about.html">自述</a> · <a href="https://github.com/yuanzephyr920-oss">源码</a> · <a href="#main">回到顶部 ↑</a></p>
-
-  <hr class="foot__rule">
-
-  <p>© 2026 yuanzephyr。文字 CC BY 4.0，代码 MIT。这张页上的截图来自本机，没有调色，只做了灰度。</p>
-  <p>最后改动 <time datetime="2026-11-07">2026-11-07</time>。没有埋点，没有统计，没有 Cookie。</p>
-</footer>
-
-</div>
 </body>
 </html>
