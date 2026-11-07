@@ -19,31 +19,36 @@
 直接双击 `index.html` 即可，`file://` 下没有跨域问题（页面不加载任何脚本或远程资源）。
 需要本地服务时：`npx serve .` 或 `python -m http.server`。
 
-## 发布到 GitHub Pages
+## 线上
 
-仓库名要用 `<账号>.github.io`（用户主页）或任意仓库的 `main` 分支根目录（项目页）：
+<https://yuanzephyr920-oss.github.io/> —— 仓库 `yuanzephyr920-oss/yuanzephyr920-oss.github.io`，发布源 `main` / 根目录，已强制 HTTPS。推完约半分钟构建完成。
+
+## 改完怎么发
+
+本机的 `git` 只要保留全局 `http.proxy = socks5://127.0.0.1:1080`（jamjams 在跑）就能直连 github.com；把它清空反而会挂住。
 
 ```powershell
 cd G:\DSH\personal-site
-git init -b main
-git add index.html projects.html about.html style.css favicon.svg assets
-git commit -m "个人主页：手写 HTML/CSS，依照 brutalist-web.design 七条"
-git remote add origin https://github.com/yuanzephyr920-oss/yuanzephyr920-oss.github.io.git
-git push -u origin main
+git add index.html projects.html about.html style.css favicon.svg assets README.md
+git commit -m "改了什么"
+$token = (("protocol=https" + [char]10 + "host=github.com" + [char]10 + [char]10) | git credential fill | Select-String "^password=").ToString().Substring(9)
+git push ("https://x-access-token:" + $token + "@github.com/yuanzephyr920-oss/yuanzephyr920-oss.github.io.git") main:main
 ```
 
-本机 git 走 github.com 需要先清掉全局 socks 代理与 hosts 劫持，可用一次性的：
+首次建仓（仓库不存在时）走 API，token 同上，body 写成 `repo-body.json`：
 
 ```powershell
-git -c http.proxy= -c https.proxy= -c http.sslVerify=false push -u origin main
+curl.exe -x socks5h://127.0.0.1:1080 -X POST https://api.github.com/user/repos `
+  -H ("Authorization: Bearer " + $token) -H "Content-Type: application/json" `
+  --data-binary "@repo-body.json"
 ```
 
-推完后在仓库 Settings → Pages 里确认发布源是 `main` / 根目录，几分钟后地址为
-`https://yuanzephyr920-oss.github.io/`。
+注意 PowerShell 里不要用 `--data-raw $body` 传 JSON，引号会被打坏（API 回 `Problems parsing JSON`），一律写文件再用 `--data-binary "@file"`。
 
 ## `_check/`（本地验证用具，发布时不要带上）
 
-- `shoot.mjs`：用 Edge 的 CDP 在 11 种视口/配色下整页截图，输出到本目录，并回传横向溢出探针。
+- `shoot.mjs`：用 Edge 的 CDP 在 12 种视口/配色下整页截图（320 / 390 / 820 / 1440 / 2560，深浅两套 + 增强对比度），输出到本目录，并回传横向溢出探针。
+- `shoot-live.mjs`：同一套截图，但拍的是线上 `https://yuanzephyr920-oss.github.io/`，结果落在 `_check/live/`。
 - `verify.mjs`：查打印样式、对比度、外部请求数、实际使用的平台字体、标题层级。
 - `chrome-check.mjs`：同样的页面在 Chrome 里复查一遍，并抓控制台报错。
 
