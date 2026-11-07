@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=500">
+<title>档案 · yuanzephyr</title>
+<meta name="description" content="yuanzephyr 的档案：座右铭、三条做法、工作台、在造的东西。从 GitHub 主页搬下来的，一条没添。">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>档案</h1>
+
+<p><a href="index.html">车间</a> · <a href="projects.html">三个包</a> · <a href="about.html">自述</a> · 档案 · <a href="404.html">错页</a></p>
+
+<hr>
+
+<div class="box">
+<div class="screenshot"><img src="assets/banner.jpg" width="444" height="250" alt="GitHub 主页的横幅：黑底绿字，yuanzephyr、DSH PLUGINS · CRT · LITANY · MARKET，右边一枚齿轮"></div>
+<a href="https://github.com/yuanzephyr920-oss">github.com/yuanzephyr920-oss</a>
+</div>
+
+<div class="box">
+<h2>信条</h2>
+<p>「肉体羸弱，机械恒昌。」</p>
+<p>写给自己的话，也写在主页横幅上。</p>
+<p><i>I build plugins for DeepSeek Harness: CRT idle screens and machine-god litanies. Made for daily use, so they are built carefully — GPU-composited, zero-dependency, no monkey-patching.</i></p>
+</div>
+
+<div class="box">
+<h2>三条做法</h2>
+<ol>
+<li><b>不魔改宿主。</b>插件只在边缘生长——<code>cordis.patch.yml</code> 加一行插入层，关掉就还原。</li>
+<li><b>能上 GPU 就别上 CPU。</b>文字与提示各预渲染成一层纹理，逐帧只在片元着色器里合成：RTX 4060 上稳定 16.6 ms/帧。</li>
+<li><b>装完就能用。</b>一条 <code>dsh plugin --profile desktop add &lt;包名&gt;</code>，没有构建步骤，没有运行时依赖。</li>
+</ol>
+</div>
+
+<div class="box">
+<h2>工作台</h2>
+<dl>
+<dt>语言</dt><dd>Node.js · JavaScript · GLSL</dd>
+<dt>画面</dt><dd>WebGL</dd>
+<dt>日常</dt><dd>PowerShell · Python</dd>
+<dt>地面</dt><dd>Windows · Git</dd>
+</dl>
+<p>插件之外，也常和工具链本身较劲：加载顺序、渲染管线、热重载，还有这台机器上的各种坑。</p>
+</div>
+
+<div class="box">
+<h2>在造</h2>
+<ul>
+<li><a href="projects.html#crt">dsh-idle-crt</a> — 待机显像管</li>
+<li><a href="projects.html#om">dsh-om-messiah</a> — 祷文转换</li>
+<li><a href="projects.html#awesome">awesome-dsh-plugin</a> — 插件目录</li>
+</ul>
+<p>三件都在用，所以做得较真。</p>
+</div>
+
+<div class="box">
+<h2>终端</h2>
+<ul>
+<li><a href="https://www.npmjs.com/package/dsh-idle-crt">npm · dsh-idle-crt</a></li>
+<li><a href="https://www.npmjs.com/package/dsh-om-messiah">npm · dsh-om-messiah</a></li>
+<li><a href="https://github.com/yuanzephyr920-oss/dsh-idle-crt/issues">Issues</a> — 问题与需求</li>
+</ul>
+<p>想看内部：<code>dsh-idle-crt</code> 的 <code>lib/</code> 里宿主半边与浏览器半边是分开写的。</p>
+</div>
+
+<br clear="all">
+
+<hr>
+
+<p>© 2026 yuanzephyr · 文字 CC BY 4.0 · 代码 MIT · 赞美万机之神</p>
+
+</body>
+</html>
