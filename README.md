@@ -1,61 +1,86 @@
-# yuanzephyr 的个人页（v3：手搭版）
+# yuanzephyr 个人站 · 第 4 版「粗野浇筑」
 
-三张纸、一份样式表、一张截图。没有框架、没有构建、没有 JavaScript、没有一张从外面下载的字体或图片。
-断网双击 `index.html` 也照样打得开。
+手写 HTML，一份样式表，零脚本。图纸照 [brutalist-web.design](https://brutalist-web.design/)
+的七条，样式照 [brutalistwebsites.com](https://brutalistwebsites.com/) 的排法，
+再掺一点 2000 年中文个人站的零件和 2010 年代反 UX 的站姿。
 
 线上：<https://yuanzephyr920-oss.github.io/>
 
 ## 文件
 
-| 文件 | 字节 | 说明 |
-| --- | --- | --- |
-| `index.html` | 8157 | 首页：先摆事实、在造什么、三条做法、这台机器、怎么找我、这一页本身 |
-| `projects.html` | 7213 | 三个包与出处许可 |
-| `about.html` | 8651 | 我、这台机器、七条怎么落的、皮下做了什么、更新记录 |
-| `style.css` | 7310 | 全站唯一一份样式表（含四套配色） |
-| `favicon.svg` | 383 | 墨底绿框小图标 |
-| `assets/idle-crt-plate.jpg` | 60987 | 待机显像管的实拍截屏，1200×750 |
-| `_check/` | — | 验证与截图脚本，不是站点的一部分 |
-
-首页连样式带图标 **15.5 KB**，gzip 之后 **6.6 KB**；其中样式表 7.1 KB，正文文字本身 4.4 KB。
-三个文件、零个外部请求、零字节脚本。
-
-## 设计约定（v3）
-
-表面是随手搭的：浏览器默认的衬线正文、黑体标题、等宽小标签，方框用 `fieldset`，分隔线是虚线，
-重点用 `mark` 的黄底，链接用浏览器默认的蓝与紫。桌面是一层 16px 棋盘格（`linear-gradient` 画的），
-纸是一张 50rem 宽的白卡——都是手边就有的东西，没有一件是为了"设计感"专门做的。
-
-功夫在皮下：
-
-- **语义**：`nav`/`main`/`section`/`time`/`sup`/`dfn`/`abbr` 都是真标签；每页一个 `h1`，标题不跳级；跳转正文的 `a.skip`。
-- **对比度**：正文 21.00、次级 7.39、链接 9.40，全部过 AA；暗色模式另算一套。
-- **打印**：导航、状态条、便签、徽章、注释行全部收起，外链后面补真实地址。
-- **暗色 / 增强对比度**：走 `prefers-color-scheme` 与 `prefers-contrast` 媒体查询，不靠脚本判断。
-- **窄屏**：320 到 2560 五档实测，`scrollWidth` 与视口同宽，没有横向拖动。
-- **字体栈**：中文候选排在 `system-ui` 之前——本机 `system-ui` 会落到某个外来宋体上。
+| 文件 | 是什么 |
+|---|---|
+| `index.html` | 首页 / 车间：在产三件、车间规矩、原始肌理、材料单、怎么找我 |
+| `projects.html` | 三个包 / 工单：装法、代价、钩子、出处与许可 |
+| `about.html` | 自述 / 材料：这台机器、怎么浇的（七条逐条对）、参考墙、皮下自检、更新记录 |
+| `404.html` | 「这条走廊没有门」，GitHub Pages 自动接管坏链接 |
+| `style.css` | 全部样式，约 14 KB，一个 `@media` 三层，外加打印样式 |
+| `favicon.svg` | 纸底墨框 + 黄三角 + Impact 的 Z |
+| `assets/idle-crt-plate.jpg` | 显像管屏保的实拍截图（工单里那张） |
 
 ## 本地看
 
-直接打开 `index.html`（`file://` 就够，页面没有外部请求）。
+直接双击 `index.html` 就行——没有构建、没有依赖、断网也照开。
+
+要按线上路径试，随便起个静态服务：
+
+```powershell
+cd G:\DSH\personal-site
+python -m http.server 8080
+# http://127.0.0.1:8080/
+```
+
+截图（Edge headless + 手写 CDP，宽 320–2560 全页，写进 `_check/v4/`）：
+
+```powershell
+cd G:\DSH\personal-site\_check
+node shoot4.mjs
+```
 
 ## 发布
 
+仓库 `yuanzephyr920-oss/yuanzephyr920-oss.github.io`，Pages 源是 `main` 根目录，强制 HTTPS。
+本机推之前保留全局 socks 代理（清空会挂住），token 从 `git credential fill` 取：
+
+```powershell
+cd G:\DSH\personal-site
+git add -A
+git commit -m "重做版面 v4：粗野浇筑"
+$t = (("protocol=https`nhost=github.com`n`n" | git credential fill) | Select-String 'password=') -replace 'password=',''
+git push "https://x-access-token:$t@github.com/yuanzephyr920-oss/yuanzephyr920-oss.github.io.git" main:main
 ```
-powershell -NoProfile -ExecutionPolicy Bypass -File G:\DSH\_work\push-site.ps1
+
+推完约 40 秒构建。验：
+
+```powershell
+curl.exe -x socks5h://127.0.0.1:1080 -s https://yuanzephyr920-oss.github.io/ | Select-Object -First 20
 ```
 
-脚本做三件事：`git add -A`、用提交信息文件提交、从 `git credential fill` 取 token 后推到
-`yuanzephyr920-oss/yuanzephyr920-oss.github.io` 的 `main`。本机 git 走 socks5 代理，
-清掉代理会挂住；内联带 token 的 `git push` 会被 cc-safety-net 误判成 force push，所以必须走脚本。
+## 这一版守的规矩
 
-线上生效后可用 `G:\DSH\_work\wait-live.ps1` 轮询确认（等到页面出现 `class="strip"`／新版标记即算生效）。
+- **只有链接能点**：零 JavaScript，没有卡整块跳转、没有假按钮。
+- **链接有下划线，访问过变紫**：浏览器默认长什么样就什么样，只改颜色变量。
+- **后退键好使**：没有 hash 路由、没有重定向、没有拦 `history`。
+- **靠滚动看内容**：不折叠、不分页、不弹「阅读更多」。
+- **该装饰才装饰**：纸纹、粗线、骑缝章、施工带、走马灯——每样都有出处。
+  「最佳浏览 1024×768 · IE 6.0」只是族谱，不是要求。
+- **快**：无 Web 字体、无图标库、无统计脚本，外部请求 0 个。
 
-## `_check/` 里的脚本
+**没有暗色模式**，故意的：这一版是「纸 + 墨」，反色会把纸的纹理整个抹掉。
+**有打印样式**：走带、侧栏、施工带不进纸，外链后面补真实地址。
 
-- `shoot.mjs`：headless Edge + CDP，12 组视口/配色全页截图到 `_check/`，并回传是否横向溢出。
-- `shoot-live.mjs`：同上，但打线上地址，输出到 `_check/live/`。
-- `verify3.mjs`：lang、脚本数、标题层级、`mark`/`sup`、链接下划线、空 `href`、五档宽度、打印态、平台字体，输出 JSON。
-- `chrome-check.mjs`：用 Chrome 复查四组视口与控制台报错。
+## 版本
 
-运行方式：`node _check/shoot.mjs`（PowerShell 里重定向 JSON 会写成 UTF-16，读的时候注意）。
+- `v1` 第一版，三页（2026-11-07）
+- `v2` 报纸底、巨编号、危险红（2026-11-07，已废）
+- `v3` 拆掉报纸版式，改手搭：默认字体、方框、表格、虚线（2026-11-07，已废）
+- `v4` 现在这一版：粗野浇筑（2026-11-07）
+
+旧版都在 git 历史里；线上只挂最新一版。
+
+## 版权
+
+文字 CC BY 4.0，代码 MIT。显像管画面派生自
+[justawebsite/dsh-splash-crt](https://github.com/justawebsite/dsh-splash-crt)（MIT）。
+七条规矩原文属于 [David Bryant Copeland](https://brutalist-web.design/)，CC BY-NC-SA 4.0；
+这里的做法是自己的。
