@@ -1,221 +1,126 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>自述 — SHEET 3/4</title>
-<meta name="description" content="谁在打铁、这台机器、七条规矩怎么兑现、参考了谁、看不见的功夫、更新记录。">
-<meta name="color-scheme" content="light dark">
+<meta name="viewport" content="width=500">
+<title>自述 · yuanzephyr</title>
+<meta name="description" content="这张纸为什么只有六行 CSS：参考站、取舍、皮下的事实与更新记录。">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<a class="skip" href="#main">跳到正文</a>
 
-<div class="sheet">
+<h1>自述</h1>
 
-  <p class="job">
-    <span><b>JOB 920‑C</b> · SHEET 3/4 · 自述</span>
-    <span>2026‑11‑07 · 四问：谁、什么机器、怎么打、参考了谁</span>
-  </p>
+<p><a href="index.html">车间</a> · <a href="projects.html">三个包</a> · 自述 · <a href="404.html">错页</a></p>
 
-  <p class="stamp" aria-hidden="true"><b>已阅</b><span>920 · 自用</span><span>IN USE</span></p>
-  <header class="mast">
-    <p class="mast__tag">材料 · 工序 · 自检</p>
-    <h1>自述<span class="cursor" aria-hidden="true"></span></h1>
-    <p class="mast__sub">
-      <span>这四张纸只写四件事：谁在干活、用什么机器、按什么工序、参考了谁。不打算做成作品集——能做的都在车间那张纸上。</span>
-      <span class="plate"><b>3/4</b><span>SHEET · HAND SET</span></span>
-    </p>
-  </header>
+<hr>
 
-  <nav class="menu" aria-label="站点">
-    <a href="index.html">1 车间</a>
-    <a href="projects.html">2 三件</a>
-    <a href="about.html" aria-current="page">3 自述</a>
-    <a href="404.html">4 错误</a>
-  </nav>
-
-  <main id="main">
-
-    <p class="lead">
-      我给自己造工具，然后把造的过程摊开。这一页是<mark>自检清单</mark>，不是简介——简介适合写在名片上，
-      自检清单适合贴在机器旁边。
-    </p>
-
-    <ol class="toc" aria-label="本页目录">
-      <li><a href="#who"><span class="n">01</span><span class="t">谁在打铁</span><span class="d" aria-hidden="true"></span></a></li>
-      <li><a href="#rig"><span class="n">02</span><span class="t">这台机器</span><span class="d" aria-hidden="true"></span></a></li>
-      <li><a href="#how"><span class="n">03</span><span class="t">七条怎么兑现</span><span class="d" aria-hidden="true"></span></a></li>
-      <li><a href="#refs"><span class="n">04</span><span class="t">参考墙</span><span class="d" aria-hidden="true"></span></a></li>
-      <li><a href="#under"><span class="n">05</span><span class="t">皮下</span><span class="d" aria-hidden="true"></span></a></li>
-      <li><a href="#log"><span class="n">06</span><span class="t">更新记录</span><span class="d" aria-hidden="true"></span></a></li>
-      <li><a href="#call"><span class="n">07</span><span class="t">怎么找我</span><span class="d" aria-hidden="true"></span></a></li>
-    </ol>
-
-    <h2 id="who"><span class="no">01</span>谁在打铁<a class="plink" href="#who" aria-label="本节永久链接">#</a></h2>
-
-    <p>
-      给 DeepSeek Harness 写插件。插件之外，大部分时间和在工具链本身较劲：加载顺序、谁管渲染、谁管登录、谁该在登录那一层失败。
-      这些机器上跑的几个东西，都是这么长出来的。
-    </p>
-
-    <p>
-      写完的东西丢到 npm、源码挂 GitHub。没有团队、也没有排期——发布节奏是「自己先用顺了再说」。
-      所以这里的东西都很少：只做一件小事，做到自己每天都离不开。窄不是谦虚，是能力范围。
-    </p>
-
-    <h2 id="rig"><span class="no">02</span>这台机器<a class="plink" href="#rig" aria-label="本节永久链接">#</a></h2>
-
-    <table class="stack">
-      <caption>表 1 · 用来干活的东西</caption>
-      <tbody>
-        <tr><th scope="row">机器</th><td data-label="值">一台 Windows 工作站，一个人用</td></tr>
-        <tr><th scope="row">显卡</th><td data-label="值">RTX 4060 —— 显像管写画面的帧就在这里合成</td></tr>
-        <tr><th scope="row">运行时</th><td data-label="值">Node.js 24；浏览器用 Edge 与 Chrome</td></tr>
-        <tr><th scope="row">终端</th><td data-label="值">Windows PowerShell（5.1，不是 7）</td></tr>
-        <tr><th scope="row">语言</th><td data-label="值">JavaScript · GLSL · PowerShell</td></tr>
-        <tr><th scope="row">字体</th><td data-label="值">系统自带的：Courier New、Consolas、宋体、黑体。一个都不下载</td></tr>
-      </tbody>
-    </table>
-
-    <h2 id="how"><span class="no">03</span>七条怎么兑现<a class="plink" href="#how" aria-label="本节永久链接">#</a></h2>
-
-    <p>
-      七条抄自 <a href="https://brutalist-web.design/">brutalist-web.design</a>。上一版把它们逐条照着做了一遍；
-      这一版换了张纸，工序没变，只是把「怎么兑现」重新写了一遍——写不出来的就不算兑现。
-    </p>
-
-    <table class="stack">
-      <caption>表 2 · 七条规矩，和这张纸上的做法</caption>
-      <thead><tr><th scope="col">规矩</th><th scope="col">这一版怎么兑</th></tr></thead>
-      <tbody>
-        <tr><th scope="row">1 可读</th><td data-label="怎么兑">320 到 2560 都测过；正文 15 px、行高 1.66；中文用宋体回退，等宽只当语气。窄屏表格整行变方块，列头写在值前面。</td></tr>
-        <tr><th scope="row">2 只有链接能被点</th><td data-label="怎么兑">零 JavaScript。没有整块片的跳转、没有假按钮、没有「点这里展开」。</td></tr>
-        <tr><th scope="row">3 链接有下划线</th><td data-label="怎么兑">沿用浏览器默认的蓝与紫，只加一句 hover 反白（黑底白字）。站上没有表单，也就没有按钮——不造假按钮。</td></tr>
-        <tr><th scope="row">4 后退键</th><td data-label="怎么兑">没有 hash 路由、没有重定向、没有拦 <code>history</code>。站内跳转就是普通链接。</td></tr>
-        <tr><th scope="row">5 靠滚动</th><td data-label="怎么兑">长内容不分页、不折叠正文，也不做「阅读更多」。滚轮往下，就是全部。</td></tr>
-        <tr><th scope="row">6 该装饰才装饰</th><td data-label="怎么兑">齿轮孔、绿横道、机头条、方章、闪烁光标——每样都在说「这是打印机吐出来的」，没有广告位和弹窗。</td></tr>
-        <tr><th scope="row">7 快</th><td data-label="怎么兑">手写 HTML 加一份样式表，没有字体包、没有图标库、没有统计脚本；外部请求 0 个。</td></tr>
-      </tbody>
-    </table>
-
-    <h2 id="refs"><span class="no">04</span>参考墙<a class="plink" href="#refs" aria-label="本节永久链接">#</a></h2>
-
-    <p>
-      不是截图，是转述：从这几家各借了一样东西。格子排法照 <a href="https://brutalistwebsites.com/">brutalistwebsites.com</a> 那个
-      400×250 的列表来——它整站的样式表只有六行。截图在下面「现场」。
-    </p>
-
-    <ul class="wall">
-      <li>
-        <div><b>Brutalist Websites</b><span>brutalistwebsites.com</span></div>
-        <p>等宽字、灰底、400×250 的方块、不修图。它证明：把东西排整齐、不修图，就够狠了。</p>
-      </li>
-      <li>
-        <div><b>Brutalist Web Design</b><span>brutalist-web.design</span></div>
-        <p>七条规矩的出处。核心一句：网站不是杂志，也不是应用；它是给访客读内容的。它自己的暗色是一层类名映射，不是滤镜。</p>
-      </li>
-      <li>
-        <div><b>2000 年的个人站</b><span>宋体 · 黑体 · 表格</span></div>
-        <p>宋体正文、黑体标题、表格排版、访客计数器、施工中。这一版把它们搬回来，只把表格换成语义标签。</p>
-      </li>
-      <li>
-        <div><b>2010 年代的反 UX</b><span>大字 · 硬边 · 不留白</span></div>
-        <p>借它的站姿，不借它的恶意：大字压满、不留缓冲，但不骗点击、不藏内容、不拿滚动条当进度条。</p>
-      </li>
-      <li>
-        <div><b>连续打印纸</b><span>绿横道 · 齿轮孔 · 机头条</span></div>
-        <p>机房时代真正的大宗输出：白纸、两排孔、一道绿、机头在顶上打页眉。这一版的材料就是它。</p>
-      </li>
-      <li>
-        <div><b>Neocities / Wiby</b><span>还活着的老网页</span></div>
-        <p>老网页没死，只是不流行了。手写 HTML 的个人站从来不需要平台批准。</p>
-      </li>
-    </ul>
-
-    <h3>现场</h3>
-
-    <p>
-      墙上那六格是转述，下面是证据：2026‑11‑07 用无头 Edge、1440 宽截的两张首页。
-      上一张是这类站的出处——等宽字、灰底、400×250 的方块排成三列；下一张是七条规矩的出处，它自己就穿着一身暗色。
-    </p>
-
-    <figure class="shot">
-      <img src="assets/ref-brutalistwebsites.jpg" width="1200" height="750" alt="brutalistwebsites.com 首页：灰底、等宽字、三列 400×250 的网站截图方块，名字用等宽小字写在方块下面">
-      <figcaption>brutalistwebsites.com · 三列 400×250 · 每格 padding 0 40px 80px 0 · 整站 CSS 六行</figcaption>
-    </figure>
-
-    <figure class="shot">
-      <img src="assets/ref-brutalist-web-design.jpg" width="1200" height="750" alt="brutalist-web.design 首页：暗底、白色大标题、正文每节左边一个 Permalink">
-      <figcaption>brutalist-web.design · 暗底 #111、正文 21 px、每节左边一个 Permalink</figcaption>
-    </figure>
-
-    <p class="tiny">两张都是 JPEG 压过的证据，不是装饰：不转灰度、不叠纸纹，是这几张纸上唯一不跟着系统配色走的东西。</p>
-
-    <h2 id="under"><span class="no">05</span>皮下<a class="plink" href="#under" aria-label="本节永久链接">#</a></h2>
-
-    <p>看得见的部分是打出来的，看不见的部分是攒出来的。下面这些都不显眼，缺一块就<mark>开始骗人</mark>。</p>
-
-    <table class="stack">
-      <caption>表 3 · 看不见的功夫，和怎么自己验</caption>
-      <thead><tr><th scope="col">项</th><th scope="col">做法</th><th scope="col">怎么验</th></tr></thead>
-      <tbody>
-        <tr><th scope="row">语义</th><td data-label="做法"><code>header</code>/<code>nav</code>/<code>main</code>/<code>figure</code>/<code>dl</code>；每张纸一个 <code>h1</code>，标题不跳级</td><td data-label="怎么验">关掉样式表看一遍</td></tr>
-        <tr><th scope="row">键盘</th><td data-label="做法">纸首「跳到正文」；<code>:focus-visible</code> 有虚线轮廓；没有 <code>tabindex</code> 造假的可点区域</td><td data-label="怎么验">只用 Tab 走一遍</td></tr>
-        <tr><th scope="row">对比度</th><td data-label="做法">正文与纸 18:1 上下；次级文字 7:1；红章只出现在非正文处</td><td data-label="怎么验">F12 取色算</td></tr>
-        <tr><th scope="row">暗色</th><td data-label="做法"><code>prefers-color-scheme: dark</code> 下纸反成黑纸，绿道淡下去，链接换亮蓝；照片与证据图不反相</td><td data-label="怎么验">系统切深色再刷新</td></tr>
-        <tr><th scope="row">打印</th><td data-label="做法">齿轮孔、菜单、机头条、方章不进纸；外链后面补真实地址，纸上点不了还能抄</td><td data-label="怎么验">Ctrl+P 预览</td></tr>
-        <tr><th scope="row">窄屏</th><td data-label="做法">320 / 390 / 820 / 1440 / 2560 实测，<code>scrollWidth</code> 与视口同宽；表格整行变方块</td><td data-label="怎么验">把窗口拖窄</td></tr>
-        <tr><th scope="row">动效</th><td data-label="做法">只有标题后面那个光标在闪；<code>prefers-reduced-motion</code> 下不动</td><td data-label="怎么验">系统里开「减少动态效果」</td></tr>
-        <tr><th scope="row">体积</th><td data-label="做法">首页 9.2 KB + 样式表 13.7 KB + 图标 0.6 KB = 23.6 KB；gzip 传 8.2 KB</td><td data-label="怎么验">查看源代码 / Network 面板</td></tr>
-        <tr><th scope="row">请求</th><td data-label="做法">全部同目录，没有 CDN、没有外链字体；断网刷新照开</td><td data-label="怎么验">断网刷新</td></tr>
-      </tbody>
-    </table>
-
-    <h2 id="log"><span class="no">06</span>更新记录<a class="plink" href="#log" aria-label="本节永久链接">#</a></h2>
-
-    <table class="stack">
-      <caption>表 4 · 一天里改了五版</caption>
-      <thead><tr><th scope="col">日期</th><th scope="col">版本</th><th scope="col">改了什么</th></tr></thead>
-      <tbody>
-        <tr><th scope="row">2026‑11‑07</th><td data-label="版本">v5</td><td data-label="改了什么">推倒重做：连续打印纸。等宽字、齿轮孔、绿横道、机头条、方章、闪烁光标；表格整行可堆叠；暗色跟着系统走</td></tr>
-        <tr><th scope="row">2026‑11‑07</th><td data-label="版本">v4.1</td><td data-label="改了什么">水泥浇筑版补上暗色、每节加 § 永久链接、参考墙下补两张现场截图（已废，在 git 里）</td></tr>
-        <tr><th scope="row">2026‑11‑07</th><td data-label="版本">v4</td><td data-label="改了什么">水泥浇筑：Impact/黑体巨题、宋体正文、纸纹、安全色、骑缝章、施工带（已废）</td></tr>
-        <tr><th scope="row">2026‑11‑07</th><td data-label="版本">v3</td><td data-label="改了什么">拆掉报纸版式，改成手搭：默认字体、方框、表格、虚线（已废）</td></tr>
-        <tr><th scope="row">2026‑11‑07</th><td data-label="版本">v2</td><td data-label="改了什么">报纸底、巨编号、危险红（已废）</td></tr>
-        <tr><th scope="row">2026‑11‑07</th><td data-label="版本">v1</td><td data-label="改了什么">第一版，三页（已废）</td></tr>
-        <tr><th scope="row">2026‑11‑07</th><td data-label="版本">—</td><td data-label="改了什么">站点挂上 GitHub Pages</td></tr>
-      </tbody>
-    </table>
-
-    <h2 id="call"><span class="no">07</span>怎么找我<a class="plink" href="#call" aria-label="本节永久链接">#</a></h2>
-
-    <ul>
-      <li>GitHub —— <a href="https://github.com/yuanzephyr920-oss">github.com/yuanzephyr920-oss</a></li>
-      <li>npm —— <a href="https://www.npmjs.com/package/dsh-idle-crt">dsh-idle-crt</a> · <a href="https://www.npmjs.com/package/dsh-om-messiah">dsh-om-messiah</a></li>
-      <li>问题与需求 —— 去任意仓库开一条 <a href="https://github.com/yuanzephyr920-oss/dsh-idle-crt/issues">Issue</a>，比邮件快</li>
-    </ul>
-
-    <p class="tiny">版权归作者就是版权归作者。七条规矩原文属于 <a href="https://brutalist-web.design/">David Bryant Copeland</a>，CC BY-NC-SA 4.0；这里的做法是自己的。</p>
-
-  </main>
-
-  <footer class="eof">
-    <p class="eof__bar">END OF SHEET 3 — 共 4 张</p>
-    <div class="eof__body">
-      <nav class="eof__nav" aria-label="站点">
-        <a href="index.html">1 车间</a>
-        <a href="projects.html">2 三件</a>
-        <a href="404.html">4 错误</a>
-        <a href="#main">回到顶上</a>
-      </nav>
-      <p>© 2026 yuanzephyr。文字 CC BY 4.0，代码 MIT。</p>
-      <p>机打时间 2026‑11‑07 · 打印机：浏览器 · 没有埋点，没有 Cookie。</p>
-    </div>
-  </footer>
-
+<div class="box">
+<h2>谁在打铁</h2>
+<p>给 DeepSeek Harness 写插件。工具之外，大部分时间在给工具本身找麻烦：加卸载、顺序、兼容性、重复渲染。</p>
+<p>没写过的东西不写上来。每一条底下都垫着踩过的坑，只是坑不铺在明面上。</p>
 </div>
+
+<div class="box">
+<h2>这台机器</h2>
+<dl>
+<dt>系统</dt><dd>Windows 工作站，一个人用</dd>
+<dt>显卡</dt><dd>RTX 4060</dd>
+<dt>运行时</dt><dd>Node 24</dd>
+<dt>终端</dt><dd>PowerShell 5.1</dd>
+<dt>浏览器</dt><dd>Edge 与 Chrome 各看一遍</dd>
+<dt>字体</dt><dd>系统自带，一个都不下载</dd>
+</dl>
+</div>
+
+<div class="box">
+<h2>六行怎么够</h2>
+<p>400px 一格、250px 高，就是版心。字多了换一格，字少了空着。</p>
+<p>剩下的交给浏览器默认：蓝链接、下划线、列表缩进、格子边框。没有一处是我画的。</p>
+</div>
+
+<br clear="all">
+
+<h2>现场</h2>
+
+<div class="box">
+<div class="screenshot"><img src="assets/ref-brutalistwebsites.jpg" width="444" height="250" alt="brutalistwebsites.com 首页：白底等宽字，三列 400×250 的网站截图"></div>
+<a href="https://brutalistwebsites.com/">brutalistwebsites.com · 整站六行 CSS</a>
+</div>
+
+<div class="box">
+<div class="screenshot"><img src="assets/ref-brutalist-web-design.jpg" width="444" height="250" alt="brutalist-web.design 首页：暗底浅字，标题三行，下面是七条清单"></div>
+<a href="https://brutalist-web.design/">brutalist-web.design · 七条</a>
+</div>
+
+<div class="box">
+<h2>借了什么</h2>
+<p>前者：灰底、等宽字、400×250 格子、六行样式表。图里的方块是它的目录，不是我的。</p>
+<p>后者：七条原则与「先有内容」。它自己的站是暗底、21px、无表格——我只借原则，没借皮。</p>
+</div>
+
+<br clear="all">
+
+<h2>皮下</h2>
+
+<div class="box">
+<h2>数字</h2>
+<dl>
+<dt>样式表</dt><dd>182 B · 6 行</dd>
+<dt>每页</dt><dd>4 KB 上下</dd>
+<dt>请求</dt><dd>2 个（纸 + 图标）</dd>
+<dt>脚本</dt><dd>0 行</dd>
+<dt>外部请求</dt><dd>0 个</dd>
+</dl>
+</div>
+
+<div class="box">
+<h2>不做的事</h2>
+<ul>
+<li>没有暗色模式：纸只有一张</li>
+<li>没有打印样式：本来就能直接打印</li>
+<li>没有窄屏断点：视图定在 500</li>
+<li>没有动效：没有要动的东西</li>
+</ul>
+</div>
+
+<div class="box">
+<h2>手机怎么办</h2>
+<p>视图定在 500：400 的格子加两边 40 的边距，正好一格。</p>
+<p>手机上整页缩放，不横滚。看不清就双指放大——这件事不归样式表管。</p>
+</div>
+
+<br clear="all">
+
+<h2>更新记录</h2>
+
+<div class="box">
+<h2>v6 · 2026-11-07</h2>
+<p>整站样式表压到六行，按参考站那三条规则重写。</p>
+<p>此前的纸、红章、机头条、暗色、窄屏表格，全部退场。</p>
+</div>
+
+<div class="box">
+<h2>v1–v5 · 同一天</h2>
+<p>v5 连续打印纸，v4 水泥浇筑，v3 报纸，v2 信纸，v1 第一版。</p>
+<p>都留在 git 历史里，翻得到。它们证明这条路走过，不是凭空到这里的。</p>
+</div>
+
+<div class="box">
+<h2>怎么找我</h2>
+<ul>
+<li><a href="https://github.com/yuanzephyr920-oss">GitHub</a></li>
+<li><a href="https://www.npmjs.com/package/dsh-om-messiah">npm</a></li>
+<li><a href="https://github.com/yuanzephyr920-oss/awesome-dsh-plugin/issues">Issue</a></li>
+</ul>
+</div>
+
+<br clear="all">
+
+<hr>
+
+<p>© 2026 yuanzephyr · 文字 CC BY 4.0 · 代码 MIT · 这一页也没有脚本</p>
 
 </body>
 </html>

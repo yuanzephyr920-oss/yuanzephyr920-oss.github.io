@@ -1,168 +1,111 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>YUANZEPHYR — 车间 · SHEET 1/4</title>
-<meta name="description" content="yuanzephyr 的个人车间：给 DeepSeek Harness 写插件。手写 HTML，零脚本，零依赖。">
-<meta name="color-scheme" content="light dark">
+<meta name="viewport" content="width=500">
+<title>车间 920 · yuanzephyr</title>
+<meta name="description" content="yuanzephyr：给 DeepSeek Harness 写插件。整站样式表六行，零脚本。">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<a class="skip" href="#main">跳到正文</a>
 
-<div class="sheet">
+<h1>yuanzephyr</h1>
 
-  <p class="job">
-    <span><b>JOB 920‑A</b> · SHEET 1/4 · 车间</span>
-    <span>2026‑11‑07 · 手写 · 脚本 0 B · 外部请求 0</span>
-  </p>
+<p><b>车间 920</b> · 这一张纸 · <a href="projects.html">三个包</a> · <a href="about.html">自述</a> · <a href="404.html">错页</a></p>
 
-  <p class="stamp" aria-hidden="true"><b>已阅</b><span>920 · 自用</span><span>IN USE</span></p>
-  <header class="mast">
-    <p class="mast__tag">个人站 · 第 5 版 · 连续打印纸</p>
-    <h1>YUANZEPHYR<span class="cursor" aria-hidden="true"></span></h1>
-    <p class="mast__sub">
-      <span>一个人的车间。给 DeepSeek Harness 打铁：待机显像管、机神祷文、插件目录。<br>没有团队，没有排期，没有「路线图」——东西自己先用顺了，才发出去。</span>
-      <span class="plate"><b>920</b><span>NO. · IN USE</span></span>
-    </p>
-  </header>
+<hr>
 
-  <nav class="menu" aria-label="站点">
-    <a href="index.html" aria-current="page">1 车间</a>
-    <a href="projects.html">2 三件</a>
-    <a href="about.html">3 自述</a>
-    <a href="404.html">4 错误</a>
-  </nav>
-
-  <main id="main">
-
-    <p class="lead">
-      这一页是把网页当<mark>打印机输出</mark>：白纸、绿横道、两排齿轮孔，机头在顶上打一行页眉。
-      四张纸、一份样式表，没有字体包，没有框架，没有一行脚本。断网也照样能开。
-    </p>
-
-    <ol class="toc" aria-label="本页目录">
-      <li><a href="#state"><span class="n">01</span><span class="t">本机状态</span><span class="d" aria-hidden="true"></span></a></li>
-      <li><a href="#making"><span class="n">02</span><span class="t">在产的三件</span><span class="d" aria-hidden="true"></span></a></li>
-      <li><a href="#rules"><span class="n">03</span><span class="t">出厂检验</span><span class="d" aria-hidden="true"></span></a></li>
-      <li><a href="#grain"><span class="n">04</span><span class="t">原始肌理</span><span class="d" aria-hidden="true"></span></a></li>
-      <li><a href="#call"><span class="n">05</span><span class="t">怎么找我</span><span class="d" aria-hidden="true"></span></a></li>
-    </ol>
-
-    <h2 id="state"><span class="no">01</span>本机状态<a class="plink" href="#state" aria-label="本节永久链接">#</a></h2>
-
-    <table class="stack">
-      <caption>表 1 · 这台机器现在是什么样</caption>
-      <tbody>
-        <tr><th scope="row">干活的人</th><td data-label="值">1 个</td></tr>
-        <tr><th scope="row">在产</th><td data-label="值">3 件（两个插件，一个目录）</td></tr>
-        <tr><th scope="row">运行时依赖</th><td data-label="值">0 个（两个包都是零依赖，直接跑）</td></tr>
-        <tr><th scope="row">本页脚本</th><td data-label="值">0 字节</td></tr>
-        <tr><th scope="row">外部请求</th><td data-label="值">0 个</td></tr>
-        <tr><th scope="row">纸张</th><td data-label="值">4 张（车间、三件、自述、错误），一份样式表共用</td></tr>
-      </tbody>
-    </table>
-
-    <h2 id="making"><span class="no">02</span>在产的三件<a class="plink" href="#making" aria-label="本节永久链接">#</a></h2>
-
-    <p>都是自己每天在用的东西。所以每一条下面都垫着踩过的坑，不是想出来的功能。</p>
-
-    <table class="stack">
-      <caption>表 2 · 在产清单</caption>
-      <thead><tr><th scope="col">编号</th><th scope="col">包</th><th scope="col">干什么</th><th scope="col" class="num">版本</th></tr></thead>
-      <tbody>
-        <tr>
-          <th scope="row">01</th>
-          <td data-label="包"><a href="projects.html#crt">dsh-idle-crt</a></td>
-          <td data-label="干什么">会话停了、人也走去开会，屏幕上就盖一块显像管。十分钟不动一次。</td>
-          <td data-label="版本" class="num">v0.3.1</td>
-        </tr>
-        <tr>
-          <th scope="row">02</th>
-          <td data-label="包"><a href="projects.html#om">dsh-om-messiah</a></td>
-          <td data-label="干什么">你发出的每一条提示词，先改成一篇万机之神祷文，再交给模型。</td>
-          <td data-label="版本" class="num">v1.4.3</td>
-        </tr>
-        <tr>
-          <th scope="row">03</th>
-          <td data-label="包"><a href="projects.html#awesome">awesome-dsh-plugin</a></td>
-          <td data-label="干什么">DSH 插件的收录仓库。能装、能跑、说明写清楚，就收。</td>
-          <td data-label="版本" class="num">—</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <p class="tiny">版本号是原样的。装法只有一种，写在 <a href="projects.html">三件</a> 那张纸上。</p>
-
-    <h2 id="rules"><span class="no">03</span>出厂检验<a class="plink" href="#rules" aria-label="本节永久链接">#</a></h2>
-
-    <p>
-      七条抄自 <a href="https://brutalist-web.design/">brutalist-web.design</a>，作者是 David Bryant Copeland。
-      他写的是原则，这一版给每条都配了一句「在这张纸上怎么兑现」——兑现不了的就别写上去。
-    </p>
-
-    <ol class="rules">
-      <li><b>内容先于版面。</b>先有字，再谈这张纸长什么样。反过来做，做出来的是海报。</li>
-      <li><b>只有链接和按钮能被点。</b>没有一行 JavaScript，所以也没有假按钮、没有整块跳转。</li>
-      <li><b>链接带下划线，按钮长得像按钮。</b>这站没有表单，也就没有按钮——不造假按钮。链接沿用浏览器默认的蓝与紫，只加一句 hover 反白。</li>
-      <li><b>后退键必须好使。</b>没有 hash 路由、没有重定向、不拦你的历史记录。</li>
-      <li><b>长内容靠滚。</b>不分页、不折叠、不弹「阅读更多」。</li>
-      <li><b>该装饰才装饰。</b>齿轮孔、绿横道、机头条、方章——每样都能说清「这是印出来的」。</li>
-      <li><b>快是设计的一部分。</b>没有字体包、没有图标库、没有统计。首页三件加起来 23.6 KB，服务器压过是 8.2 KB。</li>
-    </ol>
-
-    <h2 id="grain"><span class="no">04</span>原始肌理<a class="plink" href="#grain" aria-label="本节永久链接">#</a></h2>
-
-    <p>上面那条黑页眉，源码长这样。粗细、间距、字号，全写在页面里，没有一层编译把它盖住。所谓「肌理」，就是你能一路摸到纸的纤维。</p>
-
-<pre><code>&lt;div class="sheet"&gt;
-
-  &lt;p class="job"&gt;
-    &lt;span&gt;&lt;b&gt;JOB 920‑A&lt;/b&gt; · SHEET 1/4 · 车间&lt;/span&gt;
-    &lt;span&gt;2026‑11‑07 · 手写 · 脚本 0 B · 外部请求 0&lt;/span&gt;
-  &lt;/p&gt;
-
-  &lt;header class="mast"&gt;
-    &lt;p class="mast__tag"&gt;个人站 · 第 5 版 · 连续打印纸&lt;/p&gt;
-    &lt;h1&gt;YUANZEPHYR&lt;span class="cursor"&gt;&lt;/span&gt;&lt;/h1&gt;
-    …
-  &lt;/header&gt;</code></pre>
-
-    <p class="tiny">想看完整个文件？Ctrl+U，或者 <a href="https://github.com/yuanzephyr920-oss">GitHub</a> 上那份就是源文件本身，没有构建步骤。</p>
-
-    <h2 id="call"><span class="no">05</span>怎么找我<a class="plink" href="#call" aria-label="本节永久链接">#</a></h2>
-
-    <table class="stack">
-      <caption>表 3 · 四个入口，都在外面</caption>
-      <tbody>
-        <tr><th scope="row">GitHub</th><td data-label="地址"><a href="https://github.com/yuanzephyr920-oss">github.com/yuanzephyr920-oss</a> —— 源码都在这里</td></tr>
-        <tr><th scope="row">npm</th><td data-label="地址"><a href="https://www.npmjs.com/package/dsh-idle-crt">dsh-idle-crt</a> · <a href="https://www.npmjs.com/package/dsh-om-messiah">dsh-om-messiah</a></td></tr>
-        <tr><th scope="row">问题、需求、骂</th><td data-label="地址">去任意仓库<a href="https://github.com/yuanzephyr920-oss/dsh-idle-crt/issues">开一条 Issue</a>，比邮件快</td></tr>
-        <tr><th scope="row">这份纸</th><td data-label="地址">手写的。怎么攒的、参考了谁，写在 <a href="about.html">自述</a> 那张纸上</td></tr>
-      </tbody>
-    </table>
-
-    <p class="tiny">没有邮件订阅，没有 RSS（真的没有，别再问了），也没有「社交」。想追更新就 watch 仓库。</p>
-
-  </main>
-
-  <footer class="eof">
-    <p class="eof__bar">END OF SHEET 1 — 共 4 张</p>
-    <div class="eof__body">
-      <nav class="eof__nav" aria-label="站点">
-        <a href="projects.html">2 三件</a>
-        <a href="about.html">3 自述</a>
-        <a href="404.html">4 错误</a>
-        <a href="#main">回到顶上</a>
-      </nav>
-      <p>© 2026 yuanzephyr。文字 CC BY 4.0，代码 MIT。</p>
-      <p>机打时间 2026‑11‑07 · 打印机：浏览器 · 没有埋点，没有 Cookie。</p>
-    </div>
-  </footer>
-
+<div class="box">
+<h2>这一张纸</h2>
+<p>整站样式表六行，一百八十二字节：一个 body、一个 400×250 的格子、一个把图裁进格子的框。没有第七行。</p>
+<p>版面就是格子。字多了换一格，字少了就空着——不居中、不拉伸、不拿图片补。</p>
 </div>
+
+<div class="box">
+<h2>在产 · 显像管</h2>
+<p>dsh-idle-crt：十分钟没人动，屏幕上盖一层显像管。点一下就退。</p>
+<dl>
+<dt>版本</dt><dd>0.3.1 · MIT</dd>
+<dt>触发</dt><dd>busy=false 且空闲 10 分钟</dd>
+<dt>合成</dt><dd>全 GPU 片元着色器</dd>
+</dl>
+<p><a href="projects.html#crt">装法与代价</a></p>
+</div>
+
+<div class="box">
+<h2>在产 · 机神祷文</h2>
+<p>dsh-om-messiah：你发出的提示词先被改写成一篇机神祷文，再交给模型。</p>
+<dl>
+<dt>版本</dt><dd>1.4.3 · MIT</dd>
+<dt>钩子</dt><dd>agent/pre-step</dd>
+<dt>档位</dt><dd>framed / rules / off</dd>
+</dl>
+<p><a href="projects.html#om">它是怎么拦的</a></p>
+</div>
+
+<div class="box">
+<h2>在产 · 目录</h2>
+<p>awesome-dsh-plugin：DSH 插件的收录仓库，一份 README，没有生成步骤。</p>
+<dl>
+<dt>标准</dt><dd>能装 · 能跑 · 说明清楚</dd>
+<dt>没有</dt><dd>评分、排行、精选</dd>
+<dt>投稿</dt><dd>Issue 或 Pull Request</dd>
+</dl>
+<p><a href="projects.html#awesome">收录标准</a></p>
+</div>
+
+<div class="box">
+<h2>本机</h2>
+<dl>
+<dt>系统</dt><dd>Windows 工作站，一个人用</dd>
+<dt>显卡</dt><dd>RTX 4060</dd>
+<dt>运行时</dt><dd>Node 24</dd>
+<dt>终端</dt><dd>PowerShell 5.1</dd>
+<dt>字体</dt><dd>系统自带，一个都不下载</dd>
+</dl>
+</div>
+
+<div class="box">
+<h2>怎么找我</h2>
+<p>没有邮件订阅，没有 RSS（真没有，别找了），也没有社交。</p>
+<ul>
+<li><a href="https://github.com/yuanzephyr920-oss">GitHub · yuanzephyr920-oss</a></li>
+<li><a href="https://www.npmjs.com/package/dsh-idle-crt">npm · dsh-idle-crt</a></li>
+<li><a href="https://github.com/yuanzephyr920-oss/awesome-dsh-plugin/issues">开一条 Issue</a></li>
+</ul>
+</div>
+
+<br clear="all">
+
+<h2>出厂检验 · 七条</h2>
+
+<ol>
+<li>内容先于版面。先有字，再谈这张纸长什么样。</li>
+<li>只有链接和按钮能点。没有 JavaScript，也就没有假按钮。</li>
+<li>链接带下划线。浏览器默认的蓝与紫，一个色值都没改。</li>
+<li>后退键必须好使。没有 hash 路由，没有重定向。</li>
+<li>长内容靠滚。不分页、不折叠、不弹「阅读更多」。</li>
+<li>该装饰才装饰。灰底、40px 边距、横线，全部来自那六行。</li>
+<li>快是特性。零字体、零脚本、零外部请求，每页 4 KB 上下。</li>
+</ol>
+
+<h2>原始肌理</h2>
+
+<p>这一条样式表，一字不改，六行：</p>
+
+<pre>body{font-family:monospace;
+background-color:#eee;margin:40px}
+.box{width:400px;height:250px;float:left;
+padding:0 40px 80px 0}
+.screenshot{width:400px;height:250px;
+overflow:hidden}</pre>
+
+<p>首页 3.7 KB，样式表 182 B，图标 0.3 KB。Ctrl+U 看全部，没有构建步骤。</p>
+
+<hr>
+
+<p>© 2026 yuanzephyr · 文字 CC BY 4.0 · 代码 MIT · 没有脚本，没有 Cookie，没有统计</p>
 
 </body>
 </html>
