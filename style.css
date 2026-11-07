@@ -1,0 +1,357 @@
+/* ============================================================
+   style.css — 手写。没有预处理器、框架、Web 字体或构建步骤。
+   顺序即优先级：可读性 → 结构 → 强调色。
+   ============================================================ */
+
+:root {
+  --paper: #ffffff;
+  --ink: #111110;
+  --muted: #57574e;
+  --rule: #d8d8d0;
+  --accent: #0a6b34;
+  --visited: #6b3fa0;
+  --measure: 42rem;
+  --gutter: clamp(1.15rem, 4vw, 3rem);
+  /* 等宽栈只写西文会漏字：中文标点/汉字会掉到系统默认宋体上（本机实测 NSimSun），
+     所以 CJK 候选也一并列进等宽栈。 */
+  --mono: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo,
+          "Microsoft YaHei", "PingFang SC", "Noto Sans SC", monospace;
+  /* 西文→Segoe UI，中文→雅黑：CJK 候选必须排在 system-ui 之前，
+     否则 system-ui 会在某些机器上解析成系统自带宋体（本机实测就是如此）。 */
+  --sans: "Segoe UI", "Helvetica Neue", "PingFang SC", "Hiragino Sans GB",
+          "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #131311;
+    --ink: #ecebe4;
+    --muted: #a4a39a;
+    --rule: #35352e;
+    --accent: #7bdc9e;
+    --visited: #c6a9ff;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root { --muted: #333; --rule: #8a8a80; --accent: #004d20; }
+}
+@media (prefers-contrast: more) and (prefers-color-scheme: dark) {
+  :root { --ink: #fff; --muted: #dcdcd4; --rule: #9a9a90; --accent: #b6ffce; }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  border-top: 6px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  line-height: 1.72;
+  text-rendering: optimizeLegibility;
+}
+
+.wrap {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ---------- 跳过导航（键盘第一站） ---------- */
+
+.skip {
+  position: absolute;
+  left: -9999px;
+}
+.skip:focus {
+  left: 1rem;
+  top: 0.75rem;
+  z-index: 10;
+  padding: 0.5rem 0.9rem;
+  background: var(--ink);
+  color: var(--paper);
+  text-decoration: none;
+}
+
+/* ---------- 页眉 ---------- */
+
+.masthead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  padding: 1.15rem 0 1rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.wordmark {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.masthead nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.95rem;
+}
+
+.masthead nav a[aria-current="page"] {
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.3em;
+}
+
+/* ---------- 链接：一律带下划线 ---------- */
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: currentColor;
+}
+a:hover {
+  color: var(--accent);
+  text-decoration-thickness: 2px;
+}
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  text-decoration-thickness: 2px;
+}
+main a:visited { color: var(--visited); }
+
+/* ---------- 首屏 ---------- */
+
+.hero { padding: clamp(2.2rem, 6vw, 4.5rem) 0 clamp(1.6rem, 4vw, 2.6rem); }
+
+.kicker,
+.meta {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.kicker { color: var(--accent); }
+
+h1 {
+  max-width: 20ch;
+  text-wrap: balance;
+  margin: 0.7rem 0 1.3rem;
+  font-size: clamp(2rem, 1.15rem + 4.4vw, 3.7rem);
+  line-height: 1.03;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+}
+
+.lead {
+  max-width: 34em;
+  margin: 0;
+  font-size: clamp(1.04rem, 0.98rem + 0.5vw, 1.28rem);
+  line-height: 1.62;
+}
+
+/* ---------- 分节：宽屏用左侧号列做结构 ---------- */
+
+.sec {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr); /* 不用 1fr：它按 min-content 撑列，窄屏会被长命令行顶出视口 */
+  gap: 0.35rem 2rem;
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--rule);
+}
+
+.sec-body { min-width: 0; }
+@media (min-width: 60rem) {
+  .sec { grid-template-columns: 7rem minmax(0, 1fr); }
+}
+
+.sec-num {
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+}
+@media (min-width: 60rem) {
+  .sec-num {
+    font-size: 2.5rem;
+    line-height: 1;
+    letter-spacing: 0;
+    color: var(--rule);
+  }
+}
+
+h2 {
+  margin: 0 0 1.1rem;
+  font-size: clamp(1.3rem, 1.1rem + 0.9vw, 1.7rem);
+  line-height: 1.24;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+
+h3 {
+  margin: 0 0 0.35rem;
+  font-size: clamp(1.05rem, 1rem + 0.35vw, 1.2rem);
+  line-height: 1.35;
+  text-wrap: balance;
+}
+
+p { max-width: var(--measure); }
+.sec > .sec-body > p,
+.prose p { margin: 0 0 1rem; }
+
+/* ---------- 项目条目 ---------- */
+
+.entry { padding: 1.35rem 0 0.2rem; }
+.entry + .entry { margin-top: 1.35rem; border-top: 1px dashed var(--rule); }
+
+.entry .meta { margin: 0.1rem 0 0.6rem; }
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.9rem;
+  margin: 0.7rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+.tags li::before {
+  content: "· ";
+  color: var(--accent);
+}
+
+/* ---------- 列表 ---------- */
+
+ol.steps,
+ul.plain {
+  max-width: var(--measure);
+  margin: 0;
+  padding-left: 1.4rem;
+}
+ol.steps li,
+ul.plain li { margin-bottom: 0.65rem; }
+
+/* ---------- 表格：只用来放对得起来的事实 ---------- */
+
+table {
+  width: 100%;
+  max-width: var(--measure);
+  margin: 0;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+caption {
+  padding-bottom: 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  text-align: left;
+}
+th, td {
+  padding: 0.55rem 1rem 0.55rem 0;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+  vertical-align: top;
+}
+th {
+  width: 9rem;
+  font-weight: 600;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* ---------- 代码与命令 ---------- */
+
+code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  padding: 0.1em 0.3em;
+  background: rgba(128, 128, 128, 0.14);
+  border-radius: 2px;
+}
+
+pre {
+  max-width: var(--measure);
+  margin: 0.9rem 0 0;
+  padding: 0.75rem 1rem;
+  overflow-x: auto;
+  white-space: pre-wrap; /* 窄屏把命令行折行，而不是让读者去横向拖动 */
+  overflow-wrap: break-word;
+  border: 1px solid var(--rule);
+  font-size: 0.85rem;
+  line-height: 1.55;
+}
+pre code {
+  padding: 0;
+  background: none;
+  font-size: 1em;
+}
+
+/* ---------- 图 ---------- */
+
+figure { margin: 1.5rem 0 0; max-width: 52rem; }
+figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--rule);
+  background: #000;
+}
+figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+@media (prefers-color-scheme: dark) {
+  main img { filter: brightness(0.9); }
+}
+
+/* ---------- 页脚 ---------- */
+
+.foot {
+  margin-top: 1rem;
+  padding: 1.6rem 0 3rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+}
+.foot p { margin: 0 0 0.35rem; max-width: 56rem; }
+
+/* ---------- 打印 ---------- */
+
+@media print {
+  body { border-top: 0; font-size: 11pt; }
+  .masthead nav, .skip { display: none; }
+  main a { text-decoration: none; }
+  main a[href^="http"]::after {
+    content: " <" attr(href) ">";
+    font-size: 0.8em;
+    word-break: break-all;
+    color: var(--muted);
+  }
+  .sec { padding: 1.2rem 0; break-inside: avoid; }
+  figure { break-inside: avoid; }
+}

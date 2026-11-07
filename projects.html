@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>项目 — yuanzephyr</title>
+<meta name="description" content="给 DeepSeek Harness 写的插件：待机显像管 dsh-idle-crt、祷文转换 dsh-om-messiah，以及插件目录 awesome-dsh-plugin。">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="wordmark"><a href="index.html">YUANZEPHYR</a></p>
+    <nav aria-label="主导航">
+      <ul>
+        <li><a href="index.html">首页</a></li>
+        <li><a href="projects.html" aria-current="page">项目</a></li>
+        <li><a href="about.html">关于</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <div class="hero">
+      <p class="kicker">项目 · 三个包，一个目录</p>
+      <h1>给 DSH 写的三件东西。</h1>
+      <p class="lead">都自己每天在用，所以每一条都是先踩完坑才写下来的。源码在 GitHub，包在 npm，装法只有一行。</p>
+    </div>
+
+    <section class="sec" id="idle-crt" aria-labelledby="idle-crt-h">
+      <p class="sec-num" aria-hidden="true">01</p>
+      <div class="sec-body">
+        <h2 id="idle-crt-h">dsh-idle-crt — 待机显像管</h2>
+        <p class="meta">v0.3.1 · MIT · 派生自 dsh-splash-crt</p>
+
+        <p>会话停了，人也十分钟没碰过鼠标键盘，页面才盖上一块 CRT 板：辉光字、扫描线、循环反色扫掠。你回来点一下窗口、按个键、碰一下触摸屏，它淡出，页面还是原来那个页面。</p>
+
+        <p>系统屏保管不了「这一页」：Windows 的屏保是整机层面等的，可 DSH 在跑长任务时你未必想让它盖掉进度；反过来，去泡杯咖啡回来，系统屏保又不会告诉你这十分钟 Agent 没在干活、可以放心走开。这个插件只做一个很窄的判断——宿主给出 <code>busy=false</code>，并且这一页十分钟没人碰过——两个条件都满足才出现，有活干时它一次都不会亮。</p>
+
+        <p>不抢焦点，也不劫持输入：只在窗口内点击、按键、触摸、右键时才收板；滚轮只锁滚动；鼠标移动默认不收起，只让画面跟着指针做一点点视差微动。</p>
+
+        <figure>
+          <img src="assets/idle-crt-plate.jpg" width="1200" height="750" loading="lazy" alt="待机画面：一块 CRT 板盖在 DSH 页面上，屏幕上是辉光字与扫描线，一道反色扫掠斜着刷过。">
+          <figcaption>待机画面。一轮完整的反色扫掠，整帧在片元着色器里合成。</figcaption>
+        </figure>
+
+        <pre><code>dsh plugin --profile desktop add dsh-idle-crt</code></pre>
+
+        <ul class="tags">
+          <li><a href="https://github.com/yuanzephyr920-oss/dsh-idle-crt">源码</a></li>
+          <li><a href="https://www.npmjs.com/package/dsh-idle-crt">npm</a></li>
+          <li><a href="https://github.com/yuanzephyr920-oss/dsh-idle-crt/issues">Issues</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sec" id="om-messiah" aria-labelledby="om-messiah-h">
+      <p class="sec-num" aria-hidden="true">02</p>
+      <div class="sec-body">
+        <h2 id="om-messiah-h">dsh-om-messiah — 祷文转换</h2>
+        <p class="meta">v1.4.3 · Host 插件 + 客户端按钮</p>
+
+        <p>你发给 DSH 的每一句提示词，在交给模型之前先被改写成一篇万机之神祷文；DSH 的回复原样返回。发祷文还是发原文，由你在发送前自己决定。</p>
+
+        <p>拦截点是 Host waterfall 的 <code>agent/pre-step</code>：拿到这一批用户消息，只替换本批次里的文本块，不碰历史消息，也不碰引擎自己追加的运行时上下文。改写层分三档——<code>framed</code>、<code>rules</code>、<code>off</code>，风格基准逐个字抄在 <code>lib/template.js</code> 里，客户端与宿主共用同一份常量，输出逐字一致，有测试盯着。</p>
+
+        <p>不装插件也能用：<code>om-messiah --serve</code> 起一个本地反向代理，把最后一条 user 消息包装后转发。代价是绕开 DSH 的会话与审计，所以它不是默认通道。</p>
+
+        <pre><code>dsh plugin --profile desktop add dsh-om-messiah</code></pre>
+
+        <ul class="tags">
+          <li><a href="https://github.com/yuanzephyr920-oss/dsh-om-messiah">源码</a></li>
+          <li><a href="https://www.npmjs.com/package/dsh-om-messiah">npm</a></li>
+          <li>本地反代</li>
+          <li>发送前确认</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sec" id="awesome" aria-labelledby="awesome-h">
+      <p class="sec-num" aria-hidden="true">03</p>
+      <div class="sec-body">
+        <h2 id="awesome-h">awesome-dsh-plugin — 插件目录</h2>
+        <p class="meta">目录 · GitHub</p>
+
+        <p>DSH 插件市场的收录仓库。上面两件东西的条目在这里提交与维护，别人的插件也走同一套收录。</p>
+
+        <ul class="tags">
+          <li><a href="https://github.com/yuanzephyr920-oss/awesome-dsh-plugin">仓库</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sec" id="origin" aria-labelledby="origin-h">
+      <p class="sec-num" aria-hidden="true">04</p>
+      <div class="sec-body">
+        <h2 id="origin-h">出处与许可</h2>
+
+        <p>dsh-idle-crt 是 <a href="https://github.com/justawebsite/dsh-splash-crt">dsh-splash-crt</a> 的衍生改造，MIT 协议，画面部分（CRT 着色器、反色扫掠、辉光字排版）版权归上游作者。上游把它做成「启动时一闪而过的 CRT 闪屏」，改造成待机屏保时补上的是：空闲检测、输入语义、与其它插件的共存层、设置页，以及逐帧 GPU 合成。</p>
+
+        <p>dsh-idle-crt 以 MIT 发布。本站与这些包的源码都在 <a href="https://github.com/yuanzephyr920-oss">GitHub</a> 上。</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <p>© <time datetime="2026">2026</time> yuanzephyr · 手写 HTML 与一份 CSS · 0 字节 JavaScript · 无 Web 字体、无跟踪脚本</p>
+    <p>版面依照 <a href="https://brutalist-web.design/">brutalist-web.design</a> 的指南写成。</p>
+  </footer>
+
+</div>
+</body>
+</html>

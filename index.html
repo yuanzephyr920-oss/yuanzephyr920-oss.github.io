@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>yuanzephyr — 给 DeepSeek Harness 写插件的人</title>
+<meta name="description" content="给 DeepSeek Harness 写插件：待机显像管、机神祷文、插件目录。全 GPU 合成，零运行时依赖，不魔改宿主。">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="wordmark"><a href="index.html">YUANZEPHYR</a></p>
+    <nav aria-label="主导航">
+      <ul>
+        <li><a href="index.html" aria-current="page">首页</a></li>
+        <li><a href="projects.html">项目</a></li>
+        <li><a href="about.html">关于</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <div class="hero">
+      <p class="kicker">现场终端 · 2026</p>
+      <h1>给 DeepSeek Harness<br>写插件的人。</h1>
+      <p class="lead">一块在你走神时亮起来的显像管，一封把提示词翻译成祷文的转换器。都是自己每天在用的东西，所以做得比较较真：全 GPU 合成、零运行时依赖、不魔改宿主。</p>
+    </div>
+
+    <section class="sec" id="making" aria-labelledby="making-h">
+      <p class="sec-num" aria-hidden="true">01</p>
+      <div class="sec-body">
+        <h2 id="making-h">正在造</h2>
+
+        <article class="entry">
+          <h3><a href="projects.html#idle-crt">dsh-idle-crt</a> — 待机显像管</h3>
+          <p class="meta">v0.3.1 · npm</p>
+          <p>会话停了，人也十分钟没碰鼠标键盘，页面才盖上一块 CRT：辉光字、扫描线、循环反色扫掠。点一下或按个键，它就散了。</p>
+          <ul class="tags">
+            <li>逐帧全 GPU 合成</li>
+            <li>60 fps</li>
+            <li>零运行时依赖</li>
+          </ul>
+        </article>
+
+        <article class="entry">
+          <h3><a href="projects.html#om-messiah">dsh-om-messiah</a> — 祷文转换</h3>
+          <p class="meta">v1.4.3 · npm</p>
+          <p>你发出去的每一句提示词，先被改写成一篇万机之神祷文；发祷文还是发原文，由你在发送前自己决定。带设置页，也提供不装插件就能用的本地反向代理。</p>
+          <ul class="tags">
+            <li>Host 插件</li>
+            <li>发送前确认</li>
+            <li>本地反代</li>
+          </ul>
+        </article>
+
+        <article class="entry">
+          <h3><a href="projects.html#awesome">awesome-dsh-plugin</a> — 插件目录</h3>
+          <p class="meta">目录 · GitHub</p>
+          <p>DSH 插件市场的收录仓库，我的条目在这里提交与维护。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="sec" id="principles" aria-labelledby="principles-h">
+      <p class="sec-num" aria-hidden="true">02</p>
+      <div class="sec-body">
+        <h2 id="principles-h">三条做法</h2>
+        <ol class="steps">
+          <li><strong>不魔改宿主。</strong>插件只在边缘生长——DSH 的 <code>cordis.patch.yml</code> 加一行插入层，关掉就还原，宿主升级也不会打架。</li>
+          <li><strong>能上 GPU 就别上 CPU。</strong>显像管把文字和提示各预渲染成一层纹理，逐帧只在片元着色器里合成：RTX 4060 上 p50 与 p99 都是 16.7 ms。</li>
+          <li><strong>装完就能用。</strong>一条 <code>dsh plugin --profile desktop add &lt;包名&gt;</code>，没有构建步骤，没有运行时依赖。</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="sec" id="bench" aria-labelledby="bench-h">
+      <p class="sec-num" aria-hidden="true">03</p>
+      <div class="sec-body">
+        <h2 id="bench-h">工作台</h2>
+        <table>
+          <caption>事实，不是简历</caption>
+          <tbody>
+            <tr><th scope="row">机器</th><td>Windows 工作站</td></tr>
+            <tr><th scope="row">显卡</th><td>RTX 4060</td></tr>
+            <tr><th scope="row">运行时</th><td>Node.js 24 · 浏览器</td></tr>
+            <tr><th scope="row">写得最多</th><td>JavaScript · GLSL · PowerShell</td></tr>
+            <tr><th scope="row">偶尔用</th><td>Python</td></tr>
+            <tr><th scope="row">常年较劲</th><td>加载顺序、渲染管线、热重载，以及这台机器上的各种坑</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="sec" id="contact" aria-labelledby="contact-h">
+      <p class="sec-num" aria-hidden="true">04</p>
+      <div class="sec-body">
+        <h2 id="contact-h">终端</h2>
+        <ul class="plain">
+          <li><strong>GitHub</strong> — <a href="https://github.com/yuanzephyr920-oss">github.com/yuanzephyr920-oss</a></li>
+          <li><strong>npm</strong> — <a href="https://www.npmjs.com/package/dsh-idle-crt">dsh-idle-crt</a> · <a href="https://www.npmjs.com/package/dsh-om-messiah">dsh-om-messiah</a></li>
+          <li><strong>问题与需求</strong> — <a href="https://github.com/yuanzephyr920-oss/dsh-idle-crt/issues">开一条 Issue</a>，或者在任意仓库里直接 @ 我</li>
+          <li><strong>这份页面</strong> — 依照 <a href="https://brutalist-web.design/">brutalist-web.design</a> 的七条指南手写，做法逐条记在<a href="about.html#why">关于</a>一页</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot">
+    <p>© <time datetime="2026">2026</time> yuanzephyr · 手写 HTML 与一份 CSS · 0 字节 JavaScript · 无 Web 字体、无跟踪脚本</p>
+    <p>版面依照 <a href="https://brutalist-web.design/">brutalist-web.design</a> 的指南写成；显像管画面派生自 <a href="https://github.com/justawebsite/dsh-splash-crt">dsh-splash-crt</a>（MIT）。</p>
+  </footer>
+
+</div>
+</body>
+</html>
