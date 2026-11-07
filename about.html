@@ -71,7 +71,7 @@
   <ul class="badges">
     <li class="badge">WCAG AA</li>
     <li class="badge">可打印</li>
-    <li class="badge">无暗色</li>
+    <li class="badge">跟随暗色</li>
     <li class="badge"><a href="https://github.com/yuanzephyr920-oss">GitHub</a></li>
   </ul>
 </aside>
@@ -80,13 +80,13 @@
 
   <p class="lead">我给自己造工具，然后把造的过程摊开。<mark>这一页是自检清单，不是简介</mark>——简介适合写在名片上，自检清单适合贴在车间的墙上。</p>
 
-  <h2 class="sec" id="who"><span class="sec__n">01</span>谁在打铁</h2>
+  <h2 class="sec" id="who"><span class="sec__n">01</span>谁在打铁<a class="sec__link" href="#who" aria-label="本节永久链接">§</a></h2>
 
   <p>给 DeepSeek Harness 写插件。插件之外，大部分时间在和工具链本身较劲：加载顺序、渲染管线、热重载，还有这台 Windows 机器上的各种坑。</p>
 
   <p>写完的东西发到 npm，源码放 GitHub。没有团队，也没有排期——发布节奏就是「自己先用顺了再说」。所以这里的东西都很窄：只做一件小事，做到每天自己都离不开。窄不是谦虚，是能力范围。</p>
 
-  <h2 class="sec" id="machine"><span class="sec__n">02</span>这台机器</h2>
+  <h2 class="sec" id="machine"><span class="sec__n">02</span>这台机器<a class="sec__link" href="#machine" aria-label="本节永久链接">§</a></h2>
 
   <table>
     <caption>表 1 · 写东西的地方</caption>
@@ -101,7 +101,7 @@
     </tbody>
   </table>
 
-  <h2 class="sec" id="how"><span class="sec__n">03</span>怎么浇的</h2>
+  <h2 class="sec" id="how"><span class="sec__n">03</span>怎么浇的<a class="sec__link" href="#how" aria-label="本节永久链接">§</a></h2>
 
   <p>上一版是把样式降到最少：默认字体、方框、表格、虚线。那一版是对的，但太客气了。第 4 版换了个方向：<b>结构照样露着，但把它当水泥浇</b>——板缝留着，模板的印子留着，编号直接刻在墙上。</p>
 
@@ -121,9 +121,9 @@
     </tbody>
   </table>
 
-  <h2 class="sec" id="refs"><span class="sec__n">04</span>参考墙</h2>
+  <h2 class="sec" id="refs"><span class="sec__n">04</span>参考墙<a class="sec__link" href="#refs" aria-label="本节永久链接">§</a></h2>
 
-  <p>不是截图，是转述：我从这几家各借了一样东西。方块排法照 <a href="https://brutalistwebsites.com/">brutalistwebsites.com</a> 那个 400×250 的列表来——它整站的样式表只有六行。</p>
+  <p>不是截图，是转述：我从这几家各借了一样东西。方块排法照 <a href="https://brutalistwebsites.com/">brutalistwebsites.com</a> 那个 400×250 的列表来——它整站的样式表只有六行。截图在下面。</p>
 
   <ul class="wall">
     <li>
@@ -152,7 +152,23 @@
     </li>
   </ul>
 
-  <h2 class="sec" id="under"><span class="sec__n">05</span>皮下</h2>
+  <h3>现场</h3>
+
+  <p>墙上那六格是转述，下面是证据：2026-11-07 用无头 Edge、1440 宽截的两张首页。上一张是这个风格的出处——等宽字、灰底、400×250 的方块排成三列；下一张是七条规矩的出处，它自己就穿着一身暗色。</p>
+
+  <figure class="shot">
+    <img src="assets/ref-brutalistwebsites.jpg" width="1200" height="750" alt="brutalistwebsites.com 首页：灰底、等宽字、三列 400×250 的网站截图方块，名字用等宽小字写在方块下面">
+    <figcaption>brutalistwebsites.com · 三列 400×250 · 每格 padding 0 40px 80px 0 · 整站 CSS 六行</figcaption>
+  </figure>
+
+  <figure class="shot">
+    <img src="assets/ref-brutalist-web-design.jpg" width="1200" height="750" alt="brutalist-web.design 首页：暗底、白色大标题、正文每节左边一个 Permalink">
+    <figcaption>brutalist-web.design · 暗底 #111、正文 21 px、每节左边一个 Permalink</figcaption>
+  </figure>
+
+  <p class="tiny">两张都是 JPEG 压过的证据，不是装饰：不转灰度、不叠纸纹，是这站上唯一不跟着系统配色走的东西。</p>
+
+  <h2 class="sec" id="under"><span class="sec__n">05</span>皮下<a class="sec__link" href="#under" aria-label="本节永久链接">§</a></h2>
 
   <p>看得见的部分是浇出来的，看不见的部分是攒出来的。下面这些都不显眼，缺一块就<mark>开始骗人</mark>。</p>
 
@@ -166,19 +182,21 @@
       <tr><th scope="row">打印</th><td data-label="做法">走带、侧栏、施工带不进纸；外链后面补真实地址，纸上点不了还能抄</td><td data-label="怎么验">Ctrl+P 预览</td></tr>
       <tr><th scope="row">窄屏</th><td data-label="做法">320 / 390 / 820 / 1440 / 2560 实测，<code>scrollWidth</code> 与视口同宽</td><td data-label="怎么验">把窗口拖窄</td></tr>
       <tr><th scope="row">动效</th><td data-label="做法">只有顶部走马灯动；<code>prefers-reduced-motion</code> 下直接停住</td><td data-label="怎么验">系统里开「减少动态效果」</td></tr>
-      <tr><th scope="row">体积</th><td data-label="做法">三页加一份样式表、一张截图；首页连样式表带图标不到 20 KB</td><td data-label="怎么验">查看源代码 / Network 面板</td></tr>
+      <tr><th scope="row">暗色</th><td data-label="做法"><code>prefers-color-scheme: dark</code> 下纸墨对调、纸纹改 screen 亮斑、黄底永远黑字；图片不反相</td><td data-label="怎么验">系统切深色再刷新</td></tr>
+      <tr><th scope="row">体积</th><td data-label="做法">三页加一份样式表、两张参考截图；首页连样式表带图标不到 20 KB</td><td data-label="怎么验">查看源代码 / Network 面板</td></tr>
       <tr><th scope="row">请求</th><td data-label="做法">全部同目录，没有 CDN、没有外链字体；断网刷新照开</td><td data-label="怎么验">断网刷新</td></tr>
     </tbody>
   </table>
 
-  <p>没有暗色模式，是故意的：这一版的底是「纸 + 墨」，反色会把纸的质感整个抹掉。真要在夜里看，浏览器有的是办法，不需要我再做一套。</p>
+  <p>暗色跟着系统走，但不靠滤镜反相：纸和墨对调（#e9e5da ⇄ #14120c），纸纹从「乘一层脏」改成「筛一层亮」，橙色提亮到 #ff5a2b 好压在暗底上，图片一律不动。两套颜色用的是同一份样式表、同一个 <code>prefers-color-scheme</code> 媒体查询，<mark>没有脚本，也没有开关</mark>——你的系统怎么设，我就怎么浇。</p>
 
-  <h2 class="sec" id="log"><span class="sec__n">06</span>更新记录</h2>
+  <h2 class="sec" id="log"><span class="sec__n">06</span>更新记录<a class="sec__link" href="#log" aria-label="本节永久链接">§</a></h2>
 
   <table>
     <caption>表 4 · 一天里改了四版</caption>
     <thead><tr><th scope="col">日期</th><th scope="col">版本</th><th scope="col">改了什么</th></tr></thead>
     <tbody>
+      <tr><th scope="row">2026-11-07</th><td class="mono" data-label="版本">v4.1</td><td data-label="改了什么">跟着 brutalist-web.design 补上暗色（换色值不反相）、每节加 § 永久链接、参考墙下补两张现场截图</td></tr>
       <tr><th scope="row">2026-11-07</th><td class="mono" data-label="版本">v4</td><td data-label="改了什么">现在这一版：粗野浇筑。Impact/黑体巨题、宋体正文、纸纹、安全色、骑缝章、施工带、参考墙</td></tr>
       <tr><th scope="row">2026-11-07</th><td class="mono" data-label="版本">v3</td><td data-label="改了什么">拆掉报纸版式，改成手搭：默认字体、方框、表格、虚线（已废，但在 git 里）</td></tr>
       <tr><th scope="row">2026-11-07</th><td class="mono" data-label="版本">v2</td><td data-label="改了什么">报纸底、巨编号、危险红（已废）</td></tr>
@@ -187,7 +205,7 @@
     </tbody>
   </table>
 
-  <h2 class="sec" id="contact"><span class="sec__n">07</span>怎么找我</h2>
+  <h2 class="sec" id="contact"><span class="sec__n">07</span>怎么找我<a class="sec__link" href="#contact" aria-label="本节永久链接">§</a></h2>
 
   <ul>
     <li>GitHub — <a href="https://github.com/yuanzephyr920-oss">github.com/yuanzephyr920-oss</a></li>

@@ -14,6 +14,8 @@
   --orange:#cf380a;
   --yellow:#f0c400;
   --purple:#551a8b;
+  --foot-dim:#d9d3c2;
+  --foot-line:#6b6555;
   --rule:3px solid var(--ink);
   --hair:1px solid var(--ink);
   --mono:"Courier New",Courier,"SimHei","Heiti SC",monospace;
@@ -67,7 +69,7 @@ body::before{
 }
 .skip:focus{
   left:10px;top:10px;z-index:80;
-  background:var(--yellow);color:var(--ink);
+  background:var(--yellow);color:#14120c;
   border:2px solid var(--ink);padding:10px 14px;
 }
 
@@ -75,6 +77,7 @@ body::before{
 
 .ticker{
   background:var(--yellow);
+  color:#14120c;
   border-bottom:var(--rule);
   overflow:hidden;
 }
@@ -221,7 +224,7 @@ body::before{
   text-decoration-thickness:1px;
   text-underline-offset:3px;
 }
-.rail a:hover{background:var(--yellow);text-decoration:none}
+.rail a:hover{background:var(--yellow);color:#14120c;text-decoration:none}
 .rail a[aria-current="page"]{background:var(--ink);color:var(--paper);text-decoration:none;padding:1px 4px;margin-left:-4px}
 
 .hits{display:flex;gap:3px;margin:0 0 8px}
@@ -256,7 +259,7 @@ p{margin:0 0 1.05em;max-width:40em}
 }
 mark{
   background:var(--yellow);
-  color:inherit;
+  color:#14120c;
   padding:0 .12em;
   box-decoration-break:clone;
   -webkit-box-decoration-break:clone;
@@ -279,6 +282,17 @@ h2.sec:first-of-type{margin-top:0}
   color:var(--orange);
   letter-spacing:0;
 }
+.sec__link{
+  margin-left:auto;
+  align-self:center;
+  font:700 11px/1 var(--mono);
+  letter-spacing:.1em;
+  color:var(--ink-2);
+  text-decoration:none;
+  padding:3px 5px;
+  border:1px solid transparent;
+}
+.sec__link:hover{background:var(--yellow);color:#14120c;border-color:var(--ink)}
 h3{
   margin:30px 0 10px;
   font:900 17px/1.5 var(--display);
@@ -286,7 +300,7 @@ h3{
 }
 
 a{color:var(--ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
-a:hover{background:var(--yellow);text-decoration-thickness:2px}
+a:hover{background:var(--yellow);color:#14120c;text-decoration-thickness:2px}
 a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
 
 .meta{
@@ -403,6 +417,8 @@ figure img{
   border:var(--rule);
   filter:grayscale(1) contrast(1.08);
 }
+figure.shot img{filter:none}
+
 figcaption{
   margin-top:7px;
   font:11.5px/1.6 var(--mono);
@@ -475,12 +491,12 @@ figcaption{
 }
 .foot a{color:var(--yellow);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
 .foot a:hover{background:var(--yellow);color:var(--ink);text-decoration:none}
-.foot p{max-width:52em;font-size:14.5px;line-height:1.7;color:#d9d3c2}
+.foot p{max-width:52em;font-size:14.5px;line-height:1.7;color:var(--foot-dim)}
 .sig{
   display:inline-block;
   margin:0 0 22px;
   padding:12px 15px;
-  border:1px solid #6b6555;
+  border:1px solid var(--foot-line);
   border-left:8px solid var(--yellow);
   background:transparent;
   color:var(--paper);
@@ -492,7 +508,7 @@ figcaption{
   letter-spacing:.12em;
   text-transform:uppercase;
 }
-.foot__rule{border:0;border-top:1px solid #5b5546;margin:22px 0}
+.foot__rule{border:0;border-top:1px solid var(--foot-line);margin:22px 0}
 
 /* ---------- 404 ---------- */
 
@@ -570,6 +586,43 @@ figcaption{
   table.idx td:nth-child(2){white-space:normal}
 }
 
+/* ---------- 暗色：跟随系统，纸墨反置 ----------
+   学 brutalist-web.design 的做法：不是滤镜反相，是换一套颜色值。
+   纸变墨、墨变纸，纹理从「乘一层脏」改成「筛一层亮」，图片一律不动，
+   黄底黑字的地方永远保持黑字。 */
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --paper:#14120c;
+    --paper-2:#1d1a11;
+    --paper-out:#0b0a07;
+    --ink:#e9e5da;
+    --ink-2:#a89f88;
+    --orange:#ff5a2b;
+    --yellow:#ffe14d;
+    --purple:#c9a0ff;
+    --foot-dim:#b7af99;
+    --foot-line:#4b4536;
+  }
+  body::before{
+    background-image:
+      repeating-linear-gradient(0deg,rgba(233,229,218,.045) 0 1px,transparent 1px 4px),
+      radial-gradient(rgba(233,229,218,.11) .5px,transparent .6px);
+    mix-blend-mode:screen;
+  }
+  ::selection{background:var(--ink);color:var(--paper)}
+  .rail li{border-bottom-color:rgba(233,229,218,.35)}
+  code{background:rgba(233,229,218,.1)}
+  tbody tr:nth-child(even) td{background:rgba(233,229,218,.04)}
+  pre{background:#000;color:#e9e5da;border:1px solid rgba(233,229,218,.28);border-left:8px solid var(--orange)}
+  .tape{background:repeating-linear-gradient(135deg,#000 0 14px,var(--yellow) 14px 28px)}
+  .mast__stamp{mix-blend-mode:normal;opacity:.94}
+  .foot{background:#000;color:var(--ink)}
+  .foot a{color:var(--yellow)}
+  .sig{color:var(--ink)}
+  figcaption,.hits + .tiny{color:var(--ink-2)}
+}
+
 /* ---------- 偏好 ---------- */
 
 @media (prefers-reduced-motion:reduce){
@@ -579,7 +632,7 @@ figcaption{
 
 @media print{
   body{background:#fff;color:#000;font-size:11pt}
-  body::before,.ticker,.rail,.skip,.tape{display:none}
+  body::before,.ticker,.rail,.skip,.tape,.sec__link{display:none}
   .page{border:0;max-width:none}
   .layout{display:block}
   main{padding:0}
