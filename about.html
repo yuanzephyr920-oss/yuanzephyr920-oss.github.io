@@ -4,103 +4,205 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>关于 — yuanzephyr</title>
-<meta name="description" content="关于 yuanzephyr：这台机器、为什么这样写网页（逐条对照 Brutalist Web Design 的七条），以及怎么联系。">
-<meta name="color-scheme" content="light dark">
+<meta name="description" content="关于 yuanzephyr 与这个站：一个人、一台机器、以及 brutalist-web.design 七条指南逐条落地的方式。">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <a class="skip" href="#main">跳到正文</a>
 
-<div class="wrap">
-
-  <header class="masthead">
-    <p class="wordmark"><a href="index.html">YUANZEPHYR</a></p>
-    <nav aria-label="主导航">
-      <ul>
+<header>
+  <div class="register">
+    <ul>
+      <li><b>Sheet</b> 003 / 003</li>
+      <li><b>内容</b>人 · 机器 · 依据</li>
+      <li><b>指南</b>brutalist-web.design</li>
+      <li><b>字体</b>随系统，不下载</li>
+      <li><b>Rev</b> 2026.11.07</li>
+    </ul>
+  </div>
+  <div class="masthead">
+    <div class="wrap">
+      <a class="brand" href="index.html">YUANZEPHYR<sup>DSH</sup></a>
+      <nav aria-label="主导航"><ul class="nav">
         <li><a href="index.html">首页</a></li>
         <li><a href="projects.html">项目</a></li>
         <li><a href="about.html" aria-current="page">关于</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main id="main">
-
-    <div class="hero">
-      <p class="kicker">关于 · 站外的部分</p>
-      <h1>关于这个人和这个站。</h1>
-      <p class="lead">不打算把它做成作品集。能做的都在<a href="projects.html">项目</a>里，这一页只放三样东西：这台机器、为什么这样写网页、以及怎么找我。</p>
+      </ul></nav>
+      <p class="meta">插件工 · 一个人</p>
     </div>
+  </div>
+</header>
 
-    <section class="sec" id="who" aria-labelledby="who-h">
-      <p class="sec-num" aria-hidden="true">01</p>
-      <div class="sec-body">
-        <h2 id="who-h">我</h2>
-        <p>我给 DeepSeek Harness 写插件。插件之外，大部分时间在和工具链本身较劲：加载顺序、渲染管线、热重载，还有这台 Windows 机器上的各种坑。</p>
-        <p>写完的东西发到 npm，源码放 GitHub。没有团队，也没有排期——发布节奏就是「自己先用顺了再说」。</p>
+<main id="main">
+
+  <section class="hero" aria-labelledby="title">
+    <div class="hero-lead">
+      <span class="hero-index" aria-hidden="true">003<em>/</em></span>
+      <h1 id="title"><span class="cn">关于这个人和这个站。</span></h1>
+      <p class="hero-sub">One person · one machine · seven rules</p>
+    </div>
+    <div class="hero-meta">
+      <p class="meta-row"><b>身份</b><span>独立开发者</span></p>
+      <p class="meta-row"><b>做的事</b><span>给 DSH 写插件</span></p>
+      <p class="meta-row"><b>团队</b><span>没有</span></p>
+      <p class="meta-row"><b>排期</b><span>没有</span></p>
+      <p class="meta-row"><b>发布节奏</b><span>自己先用顺了再说</span></p>
+      <p>不打算把它做成作品集。能做的都在项目里，这一页只放三样东西：这台机器、为什么这样写网页、以及怎么找我。</p>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="s1">
+    <div class="sec-head">
+      <span class="sec-num" aria-hidden="true">01</span>
+      <h2 id="s1">我</h2>
+      <p class="sec-meta">一个人，一条产线</p>
+    </div>
+    <div class="sec-body">
+      <p>我给 DeepSeek Harness 写插件。插件之外，大部分时间在和工具链本身较劲：加载顺序、渲染管线、热重载，还有这台 Windows 机器上的各种坑。</p>
+      <p>写完的东西发到 npm，源码放 GitHub。没有团队，也没有排期——发布节奏就是「自己先用顺了再说」。所以这里的东西都很窄：只做一件小事，做到每天自己都离不开。</p>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="s2">
+    <div class="sec-head">
+      <span class="sec-num" aria-hidden="true">02</span>
+      <h2 id="s2">这台机器</h2>
+      <p class="sec-meta">写东西的地方</p>
+    </div>
+    <div class="sec-body">
+      <table class="data">
+        <caption>硬件与软件，就这些</caption>
+        <thead>
+          <tr><th scope="col">部件</th><th scope="col">型号 / 版本</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">机器</th><td>Windows 工作站</td></tr>
+          <tr><th scope="row">显卡</th><td>RTX 4060</td></tr>
+          <tr><th scope="row">运行时</th><td>Node.js 24</td></tr>
+          <tr><th scope="row">浏览器</th><td>Edge · Chrome（两套都测过这份页面）</td></tr>
+          <tr><th scope="row">终端</th><td>Windows PowerShell</td></tr>
+          <tr><th scope="row">字体</th><td>系统自带的黑体、等宽体与雅黑；一个都不下载</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="s3">
+    <div class="sec-head">
+      <span class="sec-num" aria-hidden="true">03</span>
+      <h2 id="s3">为什么这样写网页</h2>
+      <p class="sec-meta">七条，逐条落地</p>
+    </div>
+    <div class="sec-body">
+      <p>版面依照 <a href="https://brutalist-web.design/">Brutalist Web Design</a> 的指南。它的主张很朴素：网站是给访客读内容的，先从对齐的黑字白底开始，只为了解决具体问题才加样式。粗野不是乱，是把结构露出来——细线就是格栅，编号就是章节，红只用来指路。七条我逐条对着做了，落地方式是这些：</p>
+
+      <ol class="theses">
+        <li>
+          <span class="n" aria-hidden="true">01</span>
+          <div>
+            <h3>内容在任何合理屏幕上都可读</h3>
+            <p>320 px 到 2560 px 都渲染验过；正文 16.5–17 px、行高 1.66，一行控制在 40 个汉字上下。<code>&lt;html lang="zh-CN"&gt;</code> 让读屏软件用正确的发音规则；巨数字只做章节编号，<code>aria-hidden</code> 掉，不进正文流。</p>
+          </div>
+          <p class="tag">可读性</p>
+        </li>
+        <li>
+          <span class="n" aria-hidden="true">02</span>
+          <div>
+            <h3>只有链接和按钮响应点击</h3>
+            <p>全站 0 字节 JavaScript，没有任何一块可点区域靠脚本工作——连滚动、返回、深浅色都不需要。也没有表单，所以没有按钮，不造假按钮。</p>
+          </div>
+          <p class="tag">诚实</p>
+        </li>
+        <li>
+          <span class="n" aria-hidden="true">03</span>
+          <div>
+            <h3>链接带下划线，按钮长得像按钮</h3>
+            <p>正文链接一律 2 px 实线下划线，悬停时反白；访问过的变灰并减淡下划线。导航是带边框的等宽标签，里面那句话仍然有下划线——它首先是链接，然后才是个标签。</p>
+          </div>
+          <p class="tag">可识别</p>
+        </li>
+        <li>
+          <span class="n" aria-hidden="true">04</span>
+          <div>
+            <h3>后退键按预期工作</h3>
+            <p>没有 hash 路由，没有重定向，没有拦截 <code>history</code>，也没有「返回顶部」的假按钮；后退就是回到上一页。站内跳转（<code>#idle-crt</code> 之类）是普通锚点，浏览器自己会处理。</p>
+          </div>
+          <p class="tag">浏览器优先</p>
+        </li>
+        <li>
+          <span class="n" aria-hidden="true">05</span>
+          <div>
+            <h3>靠滚动看内容</h3>
+            <p>长内容不切页，也没有滚动监听特效；<code>scroll-behavior</code> 显式写回 <code>auto</code>，滚轮就是你系统的滚轮。</p>
+          </div>
+          <p class="tag">原生滚动</p>
+        </li>
+        <li>
+          <span class="n" aria-hidden="true">06</span>
+          <div>
+            <h3>该有装饰才装饰，不放无关内容</h3>
+            <p>装饰只有四样，且都指事：1 px 细线（格栅）、等宽小标签（编号与元数据）、危险红（只给编号、标签、强调）、纸的颗粒（内联 SVG 噪声，4.5% 不透明度，打印关掉）。没有广告、弹窗、订阅框，没有「猜你喜欢」。</p>
+          </div>
+          <p class="tag">克制</p>
+        </li>
+        <li>
+          <span class="n" aria-hidden="true">07</span>
+          <div>
+            <h3>性能是特性</h3>
+            <p>手写 HTML 加一份 18 KB 的 CSS，没有 Web 字体、没有框架、没有图片以外的资源。首页连样式带图标一共约 28 KB、3 个请求，gzip 之后 8.9 KB；正文文字本身只占 4.1 KB。</p>
+          </div>
+          <p class="tag">体积</p>
+        </li>
+      </ol>
+
+      <div class="pullquote">
+        <p>「从左上对齐的黑字白底开始，只在解决具体问题的时候加样式。」</p>
+        <cite>David Bryant Copeland</cite>
       </div>
-    </section>
 
-    <section class="sec" id="machine" aria-labelledby="machine-h">
-      <p class="sec-num" aria-hidden="true">02</p>
-      <div class="sec-body">
-        <h2 id="machine-h">这台机器</h2>
-        <table>
-          <caption>写东西的地方</caption>
-          <tbody>
-            <tr><th scope="row">机器</th><td>Windows 工作站</td></tr>
-            <tr><th scope="row">显卡</th><td>RTX 4060</td></tr>
-            <tr><th scope="row">运行时</th><td>Node.js 24</td></tr>
-            <tr><th scope="row">浏览器</th><td>Edge · Chrome（两者都测过这份页面）</td></tr>
-            <tr><th scope="row">终端</th><td>Windows PowerShell</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+      <p>深浅两套配色、以及系统的「增强对比度」设置，都走 CSS 媒体查询（<code>prefers-color-scheme</code> / <code>prefers-contrast</code>），不靠脚本判断。打印时导航、登记条、颗粒和斜章都收起，外链后面补上真实地址——纸上点不了链接，至少还能抄下来。</p>
+      <p>这一版和上一版的差别只有一个方向：把结构再露出来一点。巨数字、黑头表格、斜章、细线格栅都是同一件事的不同说法——让页面告诉你它由什么构成，而不是盖一层皮。</p>
+      <p class="facts"><a href="https://brutalist-web.design/">指南原文</a> · 作者 David Bryant Copeland；上面七条的措辞属于原作者，这里的做法是我自己的。</p>
+    </div>
+  </section>
 
-    <section class="sec" id="why" aria-labelledby="why-h">
-      <p class="sec-num" aria-hidden="true">03</p>
-      <div class="sec-body">
-        <h2 id="why-h">为什么这样写网页</h2>
+  <section class="sec" aria-labelledby="s4">
+    <div class="sec-head">
+      <span class="sec-num" aria-hidden="true">04</span>
+      <h2 id="s4">怎么找我</h2>
+      <p class="sec-meta">三条路，都通</p>
+    </div>
+    <div class="sec-body">
+      <table class="data">
+        <caption>挑一个你顺手的</caption>
+        <thead>
+          <tr><th scope="col">渠道</th><th scope="col">地址</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">GitHub</th><td><a href="https://github.com/yuanzephyr920-oss">github.com/yuanzephyr920-oss</a></td></tr>
+          <tr><th scope="row">npm</th><td><a href="https://www.npmjs.com/package/dsh-idle-crt">dsh-idle-crt</a> · <a href="https://www.npmjs.com/package/dsh-om-messiah">dsh-om-messiah</a></td></tr>
+          <tr><th scope="row">问题与需求</th><td><a href="https://github.com/yuanzephyr920-oss/dsh-idle-crt/issues">开一条 Issue</a>，比发邮件快</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 
-        <p>版面依照 <a href="https://brutalist-web.design/">Brutalist Web Design</a> 的指南。它的主张很朴素：网站是给访客读内容的，先从左对齐的黑字白底开始，只为了解决具体问题才加样式。七条我逐条对着做了，落地方式是这些——</p>
+</main>
 
-        <ol class="steps">
-          <li><strong>内容在任何合理屏幕上都可读。</strong>320 px 到 2560 px 都渲染验过；字号在 16–17 px 之间随视口微调，正文一行控制在 40 个汉字上下，<code>&lt;html lang="zh-CN"&gt;</code> 让读屏软件用正确的发音规则念。</li>
-          <li><strong>只有链接和按钮响应点击。</strong>全站 0 字节 JavaScript，没有任何一块可点区域靠脚本工作——连滚动、返回、深浅色都不需要。</li>
-          <li><strong>链接一律带下划线，按钮长得像按钮。</strong>正文链接全部带下划线，访问过的变紫；这站没有表单，也就没有按钮，不造假的按钮。</li>
-          <li><strong>后退键按预期工作。</strong>没有 hash 路由，没有重定向，没有拦截 <code>history</code>；后退就是回到上一页。</li>
-          <li><strong>靠滚动看内容。</strong>长内容不切页，也没有滚动监听特效；滚轮就是你系统的滚轮。</li>
-          <li><strong>该有装饰才装饰，不放无关内容。</strong>只有细分隔线、等宽小标签和一种强调色（磷光绿）。没有广告、弹窗、订阅框，没有「猜你喜欢」。</li>
-          <li><strong>性能是特性。</strong>手写 HTML 加一份约 7.6 KB 的 CSS，没有 Web 字体、没有框架、没有图片之外的资源。首页连样式带图标一共约 13.8 KB、三个请求，正文文字本身只占 2.2 KB。</li>
-        </ol>
+<footer>
+  <div class="tape" aria-hidden="true"></div>
+  <div class="titleblock">
+    <div><b>站点</b>yuanzephyr920-oss.github.io</div>
+    <div><b>本页</b>人 · 机器 · 依据</div>
+    <div><b>技术</b>HTML + CSS · 0 B JS</div>
+    <div><b>许可</b>文字 CC BY 4.0</div>
+  </div>
+  <div class="colophon">
+    <p>© 2026 yuanzephyr · 手写 HTML 与一份 CSS · 0 字节 JavaScript · 无 Web 字体 · 无跟踪脚本</p>
+    <p>版面依照 <a href="https://brutalist-web.design/">brutalist-web.design</a> 的指南编写；显像管画面派生自 <a href="https://github.com/justawebsite/dsh-splash-crt">dsh-splash-crt</a>（MIT）。</p>
+  </div>
+</footer>
 
-        <p>深浅两套配色、以及系统的「增强对比度」设置，都走 CSS 媒体查询（<code>prefers-color-scheme</code> / <code>prefers-contrast</code>），不靠脚本判断。打印时导航收起，外链后面补上真实地址——纸上点不了链接，至少还能抄下来。</p>
-
-        <p>指南原文与作者：<a href="https://brutalist-web.design/">brutalist-web.design</a>，David Bryant Copeland。上面七条的措辞属于原作者，这里的做法是我自己的。</p>
-      </div>
-    </section>
-
-    <section class="sec" id="find" aria-labelledby="find-h">
-      <p class="sec-num" aria-hidden="true">04</p>
-      <div class="sec-body">
-        <h2 id="find-h">怎么找我</h2>
-        <ul class="plain">
-          <li><strong>GitHub</strong> — <a href="https://github.com/yuanzephyr920-oss">github.com/yuanzephyr920-oss</a></li>
-          <li><strong>npm</strong> — <a href="https://www.npmjs.com/package/dsh-idle-crt">dsh-idle-crt</a> · <a href="https://www.npmjs.com/package/dsh-om-messiah">dsh-om-messiah</a></li>
-          <li><strong>问题与需求</strong> — <a href="https://github.com/yuanzephyr920-oss/dsh-idle-crt/issues">开一条 Issue</a>，比发邮件快</li>
-        </ul>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="foot">
-    <p>© <time datetime="2026">2026</time> yuanzephyr · 手写 HTML 与一份 CSS · 0 字节 JavaScript · 无 Web 字体、无跟踪脚本</p>
-    <p>版面依照 <a href="https://brutalist-web.design/">brutalist-web.design</a> 的指南写成；显像管画面派生自 <a href="https://github.com/justawebsite/dsh-splash-crt">dsh-splash-crt</a>（MIT）。</p>
-  </footer>
-
-</div>
 </body>
 </html>
