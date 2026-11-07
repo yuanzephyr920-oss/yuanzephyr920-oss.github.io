@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=500">
 <title>三个包 · yuanzephyr</title>
-<meta name="description" content="三个在产的 DSH 插件：待机显像管、机神祷文、插件目录。装法与代价都在明面。">
+<meta name="description" content="三个在产的 DSH 插件：待机显像管、机神祷文、插件目录。每件配一张实机图，装法与代价都在明面。">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -16,9 +16,9 @@
 
 <hr>
 
-<div class="box">
-<div class="screenshot"><img src="assets/idle-crt-plate.jpg" width="444" height="250" alt="dsh-idle-crt 的待机画面：黑底上一台显像管，写着 DEEPSEEK HARNESS"></div>
-<a id="crt" href="https://github.com/yuanzephyr920-oss/dsh-idle-crt">dsh-idle-crt · 待机显像管</a>
+<div class="box" id="crt">
+<div class="screenshot"><img src="assets/crt-plate.jpg" width="444" height="250" alt="待机画面：黑底、扫描线，一台显像管上写着 DEEPSEEK HARNESS，下面一行 PRESS ANY KEY TO CONTINUE"></div>
+<a href="https://github.com/yuanzephyr920-oss/dsh-idle-crt">dsh-idle-crt · 待机画面</a>
 </div>
 
 <div class="box">
@@ -28,12 +28,27 @@
 </div>
 
 <div class="box">
+<h2>装法</h2>
+<p><code>dsh plugin --profile desktop add dsh-idle-crt</code></p>
+<dl>
+<dt>按钮</dt><dd>DSH 客户端里，不改宿主</dd>
+<dt>卸载</dt><dd>去掉包名，重启即回原样</dd>
+<dt>依赖</dt><dd>零运行时依赖</dd>
+</dl>
+</div>
+
+<div class="box">
+<div class="screenshot"><img src="assets/crt-settings.jpg" width="444" height="250" alt="dsh-idle-crt 的设置页：空闲时长、触发条件、画面开关"></div>
+<a href="https://github.com/yuanzephyr920-oss/dsh-idle-crt">dsh-idle-crt · 设置页</a>
+</div>
+
+<div class="box">
 <h2>代价</h2>
 <dl>
 <dt>合成</dt><dd>全 GPU，片元着色器</dd>
 <dt>帧时间</dt><dd>p50 16.7 ms · p99 16.7 ms</dd>
 <dt>显卡</dt><dd>RTX 4060</dd>
-<dt>依赖</dt><dd>零运行时依赖</dd>
+<dt>内存</dt><dd>不占 JS 主线程</dd>
 </dl>
 </div>
 
@@ -43,30 +58,30 @@
 <p>我改的是触发条件：从「启动时闪一下」改成「页面空闲才亮」，并补了输入语义与一处 css 变量名冲突。</p>
 </div>
 
-<div class="box">
-<h2>装法</h2>
-<p><code>dsh plugin --profile desktop add &lt;包名&gt;</code></p>
-<dl>
-<dt>包名</dt><dd>dsh-idle-crt · dsh-om-messiah</dd>
-<dt>插件按钮</dt><dd>DSH 客户端，不需要改宿主</dd>
-<dt>卸载</dt><dd>去掉包名，重启即回原样</dd>
-</dl>
+<div class="box" id="om">
+<div class="screenshot"><img src="assets/om-chat.jpg" width="444" height="250" alt="对话里刚发出的那条提示词已经变成一篇机神祷文，下面是模型的回答"></div>
+<a href="https://github.com/yuanzephyr920-oss/dsh-om-messiah">dsh-om-messiah · 祷文落下时的对话</a>
 </div>
-
-<div class="box">
-<h2>许可</h2>
-<p>MIT。画面部分的版权归上游作者，改动归我。</p>
-<p>再分发留一句出处就行——「版权归原作者」是事实，不是免责声明。</p>
-</div>
-
-<br clear="all">
-
-<h2 id="om">dsh-om-messiah · 机神祷文</h2>
 
 <div class="box">
 <h2>它做什么</h2>
 <p>你发给 DSH 的每一条提示词，在交给模型之前先被改写成一篇万机之神的祷文；回复照样返回。</p>
 <p>发不发送由你决定，它不改你的稿子。</p>
+</div>
+
+<div class="box">
+<h2>三档</h2>
+<dl>
+<dt>framed</dt><dd>整篇祷文</dd>
+<dt>rules</dt><dd>只加开场与收束</dd>
+<dt>off</dt><dd>原样放行</dd>
+</dl>
+<p>客户端与宿主共用一份常量，输出逐字一致。</p>
+</div>
+
+<div class="box">
+<div class="screenshot"><img src="assets/om-settings.jpg" width="444" height="250" alt="dsh-om-messiah 的设置页：总开关、祷文强度三档、发送前确认"></div>
+<a href="https://github.com/yuanzephyr920-oss/dsh-om-messiah">dsh-om-messiah · 设置页</a>
 </div>
 
 <div class="box">
@@ -76,18 +91,15 @@
 </div>
 
 <div class="box">
-<h2>三档与留神</h2>
-<dl>
-<dt>framed</dt><dd>整篇祷文</dd>
-<dt>rules</dt><dd>只加开场与收束</dd>
-<dt>off</dt><dd>原样放行</dd>
-</dl>
-<p>另有 <code>--serve</code>：本地反代，绕开会话与审计。方便，但别当默认通道。</p>
+<h2>留神</h2>
+<p>另有 <code>--serve</code>：本地反代，绕开会话与审计。</p>
+<p>方便，但别当默认通道——它跳过的正是让你能追责的那一层。</p>
 </div>
 
-<br clear="all">
-
-<h2 id="awesome">awesome-dsh-plugin · 目录</h2>
+<div class="box" id="awesome">
+<div class="screenshot"><img src="assets/awesome-site.jpg" width="444" height="250" alt="awesome-dsh-plugin.com 的头部：标题、搜索框、按用途分好的标签"></div>
+<a href="https://awesome-dsh-plugin.com/">awesome-dsh-plugin · 目录站</a>
+</div>
 
 <div class="box">
 <h2>收录标准</h2>
