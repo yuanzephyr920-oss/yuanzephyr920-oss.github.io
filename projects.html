@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=500">
-<title>三个包 · yuanzephyr</title>
-<meta name="description" content="三个在产的 DSH 插件：待机显像管、机神祷文、插件目录。每件配一张实机图，装法与代价都在明面。">
+<title>三个包 · 红一角</title>
+<meta name="description" content="三个在产的 DSH 插件：待机显像管、机神祷文、插件目录。每件贴一张实机图；装法与代价都写在明面上。">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -16,6 +16,8 @@
 
 <hr>
 
+<p>三张工单：一块待机显像管、一个把提示词改写成祷文的钩子、一份插件目录。三件都不往宿主里塞东西，关掉就还原。</p>
+
 <div class="box" id="crt">
 <div class="screenshot"><img src="assets/crt-plate.jpg" width="444" height="250" alt="待机画面：黑底、扫描线，一台显像管上写着 DEEPSEEK HARNESS，下面一行 PRESS ANY KEY TO CONTINUE"></div>
 <a href="https://github.com/yuanzephyr920-oss/dsh-idle-crt">dsh-idle-crt · 待机画面</a>
@@ -23,8 +25,8 @@
 
 <div class="box">
 <h2>它做什么</h2>
-<p>十分钟没人动，页面上盖一块显像管：辉光管、扫描线、一圈灰色扫描。点鼠标、按键、滚一下，它退开。</p>
-<p>它不抢焦点，不劫持输入。滚轮只锁滚动，鼠标移动不收起。</p>
+<p>十分钟没人碰键鼠、也没有会话在跑，页面上会盖一块显像管：辉光字、扫描线、一圈灰色扫掠。</p>
+<p>点一下、按个键、滚一下滚轮，它就退开。它不抢焦点，不劫持输入；滚轮只锁滚动，鼠标移动不收起。</p>
 </div>
 
 <div class="box">
@@ -35,6 +37,7 @@
 <dt>卸载</dt><dd>去掉包名，重启即回原样</dd>
 <dt>依赖</dt><dd>零运行时依赖</dd>
 </dl>
+<p>装的是包，不是补丁。</p>
 </div>
 
 <div class="box">
@@ -50,12 +53,14 @@
 <dt>显卡</dt><dd>RTX 4060</dd>
 <dt>内存</dt><dd>不占 JS 主线程</dd>
 </dl>
+<p>16.7 ms 正好是 60 fps 的一帧，p99 也没掉出去。</p>
 </div>
 
 <div class="box">
 <h2>出处</h2>
 <p>派生自 <a href="https://github.com/justawebsite/dsh-splash-crt">justawebsite/dsh-splash-crt</a>（MIT）。</p>
 <p>我改的是触发条件：从「启动时闪一下」改成「页面空闲才亮」，并补了输入语义与一处 css 变量名冲突。</p>
+<p>它不是屏保：屏保要整机空闲，这里只要这一页空闲。</p>
 </div>
 
 <div class="box" id="om">
@@ -65,8 +70,8 @@
 
 <div class="box">
 <h2>它做什么</h2>
-<p>你发给 DSH 的每一条提示词，在交给模型之前先被改写成一篇万机之神的祷文；回复照样返回。</p>
-<p>发不发送由你决定，它不改你的稿子。</p>
+<p>你发给 DSH 的每一条提示词，在交给模型之前先被改写成一篇万机之神的祷文；模型的回复照常返回。</p>
+<p>发送前可以先看一眼：发祷文，还是发原文。原文一直在，发哪份由你。</p>
 </div>
 
 <div class="box">
@@ -76,7 +81,7 @@
 <dt>rules</dt><dd>只加开场与收束</dd>
 <dt>off</dt><dd>原样放行</dd>
 </dl>
-<p>客户端与宿主共用一份常量，输出逐字一致。</p>
+<p>framed 是默认档；rules 只动头尾，中间一个字不改。客户端与宿主共用一份常量，输出逐字一致。</p>
 </div>
 
 <div class="box">
@@ -87,13 +92,13 @@
 <div class="box">
 <h2>拦在哪</h2>
 <p>Host 的 <code>agent/pre-step</code> 钩子。拿到本批次用户消息，只换文本块，不动历史与运行时上下文。</p>
-<p>图片、附件、指令原样通过。</p>
+<p>图片、附件、指令原样通过；改写前后在日志里能对照——设置里有一个开关。</p>
 </div>
 
 <div class="box">
 <h2>留神</h2>
 <p>另有 <code>--serve</code>：本地反代，绕开会话与审计。</p>
-<p>方便，但别当默认通道——它跳过的正是让你能追责的那一层。</p>
+<p>方便，但它跳过的正是会话记录与审计——排障时你会想要那一层。</p>
 </div>
 
 <div class="box" id="awesome">
@@ -103,21 +108,21 @@
 
 <div class="box">
 <h2>收录标准</h2>
-<p>纯 Markdown 目录，没有生成步骤。上面两件东西也在这份目录里。</p>
+<p>一份手写的 README，没有生成步骤。上面两件东西也在这份目录里。</p>
 <p>标准三条：能装、能跑、说明写得清楚。没有评分、没有排行、没有「精选」。</p>
 </div>
 
 <div class="box">
 <h2>投稿</h2>
 <p>开一条 <a href="https://github.com/yuanzephyr920-oss/awesome-dsh-plugin/issues">Issue</a>，或者直接提 Pull Request。</p>
-<p>一条目录只回答三个问题：这东西是什么、装上要一行、源码在哪。</p>
+<p>一条目录只回答三个问题：这东西是什么、装上要一行、源码在哪。我会照着装一遍再合并。</p>
 </div>
 
 <br clear="all">
 
 <hr>
 
-<p>© 2026 yuanzephyr · 文字 CC BY 4.0 · 代码 MIT · 没有脚本，没有 Cookie</p>
+<p>© 2026 红一角 · 文字 CC BY 4.0 · 代码 MIT · 没有脚本，没有 Cookie</p>
 
 </body>
 </html>
