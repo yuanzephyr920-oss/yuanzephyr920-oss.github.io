@@ -29,15 +29,6 @@
 </div>
 
 <div class="box">
-<h2>三条做法</h2>
-<ol>
-<li><b>不魔改宿主。</b>插件只在边缘生长——<code>cordis.patch.yml</code> 加一行插入层，关掉就还原。</li>
-<li><b>能上 GPU 就别上 CPU。</b>文字与提示各预渲染成一层纹理，逐帧只在片元着色器里合成：RTX 4060 上稳定 16.6 ms/帧。</li>
-<li><b>装完就能用。</b>一条 <code>dsh plugin --profile desktop add &lt;包名&gt;</code>，没有构建步骤，没有运行时依赖。</li>
-</ol>
-</div>
-
-<div class="box">
 <h2>工作台</h2>
 <dl>
 <dt>语言</dt><dd>Node.js · JavaScript · GLSL</dd>
