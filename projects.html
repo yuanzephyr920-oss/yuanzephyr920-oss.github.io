@@ -3,20 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=500">
-<title>三个包 · 红一角</title>
-<meta name="description" content="三个在产的 DSH 插件：待机显像管、机神祷文、插件目录。每件贴一张实机图；装法与代价都写在明面上。">
+<title>四个包 · 红一角</title>
+<meta name="description" content="四个在产的 DSH 插件：待机显像管、机神祷文、插件目录、开工前查重。每件贴一张实机图；装法与代价都写在明面上。">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>三个包</h1>
+<h1>四个包</h1>
 
-<p><a href="index.html">车间</a> · 三个包 · <a href="about.html">自述</a> · <a href="profile.html">档案</a> · <a href="404.html">错页</a></p>
+<p><a href="index.html">车间</a> · 四个包 · <a href="about.html">自述</a> · <a href="profile.html">档案</a> · <a href="404.html">错页</a></p>
 
 <hr>
 
-<p>三张工单：一块待机显像管、一个把提示词改写成祷文的钩子、一份插件目录。三件都不往宿主里塞东西，关掉就还原。</p>
+<p>四张工单：一块待机显像管、一个把提示词改写成祷文的钩子、一份插件目录，还有一条开工前的规矩。四件都不往宿主里塞东西，关掉就还原。</p>
 
 <div class="box" id="crt">
 <div class="screenshot"><img src="assets/crt-plate.jpg" width="444" height="250" alt="待机画面：黑底、扫描线，一台显像管上写着 DEEPSEEK HARNESS，下面一行 PRESS ANY KEY TO CONTINUE"></div>
@@ -116,6 +116,44 @@
 <h2>投稿</h2>
 <p>开一条 <a href="https://github.com/yuanzephyr920-oss/awesome-dsh-plugin/issues">Issue</a>，或者直接提 Pull Request。</p>
 <p>一条目录只回答三个问题：这东西是什么、装上要一行、源码在哪。我会照着装一遍再合并。</p>
+</div>
+
+<div class="box" id="prior">
+<div class="screenshot"><img src="assets/prior-art.jpg" width="444" height="250" alt="GitHub 上的 dsh-github-prior-art：仓库名、About 里的中英描述、topics 和 npm 链接"></div>
+<a href="https://github.com/yuanzephyr920-oss/dsh-github-prior-art">dsh-github-prior-art · 仓库页</a>
+</div>
+
+<div class="box">
+<h2>它做什么</h2>
+<p>从零新建项目、功能、插件、工具、算法之前，先搜 3–5 个同类项目，三行写清候选、决定、理由；修 bug 和文档不查。</p>
+<p>规矩常驻，流程在技能里；两条都由插件注入，不改你的 AGENTS.md，卸载即还原。</p>
+</div>
+
+<div class="box">
+<h2>装法</h2>
+<p><code>dsh plugin --profile desktop add dsh-github-prior-art</code></p>
+<dl>
+<dt>npm</dt><dd>0.1.2 · MIT</dd>
+<dt>面板</dt><dd>Add plugin 里粘包名</dd>
+<dt>依赖</dt><dd>零运行时依赖</dd>
+</dl>
+<p>装的是 npm 上的包，不是仓库源码。</p>
+</div>
+
+<div class="box">
+<h2>真实一轮</h2>
+<p>要写一个 Markdown 表格转 CSV 的 Node CLI，它先给出四个候选：两个网页版、一个 Go CLI、一个拖了 xlsx 的 Node 包。</p>
+<p>结论一行：自建零依赖，只借管道结构。</p>
+</div>
+
+<div class="box">
+<h2>边界</h2>
+<dl>
+<dt>性质</dt><dd>提示词规矩，不是硬闸</dd>
+<dt>范围</dt><dd>只看公开 GitHub</dd>
+<dt>退化</dt><dd>没 token 就走 web_search</dd>
+</dl>
+<p>它不替你读完源码，也不改你的工程。</p>
 </div>
 
 <br clear="all">
